@@ -1,0 +1,1840 @@
+ARM GAS  C:\Users\seanj\AppData\Local\Temp\cckfTkBz.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m3
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 1
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.main,"ax",%progbits
+  20              		.align	2
+  21              		.global	main
+  22              		.thumb
+  23              		.thumb_func
+  24              		.type	main, %function
+  25              	main:
+  26              	.LFB63:
+  27              		.file 1 "main.c"
+   1:main.c        **** //======================================
+   2:main.c        **** // include                                         
+   3:main.c        **** //======================================
+   4:main.c        **** #include "oled.h"
+   5:main.c        **** 
+   6:main.c        **** //======================================
+   7:main.c        **** // function declarations                                       
+   8:main.c        **** //======================================
+   9:main.c        **** void DemoGraphics(void);
+  10:main.c        **** void DemoText(void);
+  11:main.c        **** void DemoBitmap(void);
+  12:main.c        **** 
+  13:main.c        **** //======================================
+  14:main.c        **** // main
+  15:main.c        **** //======================================
+  16:main.c        **** int main(void)
+  17:main.c        **** {
+  28              		.loc 1 17 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 1, uses_anonymous_args = 0
+  32 0000 80B5     		push	{r7, lr}
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 7, -8
+  35              		.cfi_offset 14, -4
+  36 0002 00AF     		add	r7, sp, #0
+  37              		.cfi_def_cfa_register 7
+  18:main.c        ****     CyGlobalIntEnable;      // enable global interrupts
+  38              		.loc 1 18 0
+  39              		.syntax unified
+ARM GAS  C:\Users\seanj\AppData\Local\Temp\cckfTkBz.s 			page 2
+
+
+  40              	@ 18 "main.c" 1
+  41 0004 62B6     		CPSIE   i
+  42              	@ 0 "" 2
+  19:main.c        ****     I2C_OLED_Start();       // initialize I2C_OLED
+  43              		.loc 1 19 0
+  44              		.thumb
+  45              		.syntax unified
+  46 0006 FFF7FEFF 		bl	I2C_OLED_Start
+  20:main.c        ****     CyDelay(100);           // delay while OLED powers on
+  47              		.loc 1 20 0
+  48 000a 6420     		movs	r0, #100
+  49 000c FFF7FEFF 		bl	CyDelay
+  21:main.c        **** 
+  22:main.c        ****     //DemoGraphics();
+  23:main.c        ****     DemoText();
+  50              		.loc 1 23 0
+  51 0010 FFF7FEFF 		bl	DemoText
+  52              	.L2:
+  24:main.c        ****     //DemoBitmap();
+  25:main.c        ****     
+  26:main.c        ****     for(;;){}
+  53              		.loc 1 26 0 discriminator 1
+  54 0014 FEE7     		b	.L2
+  55              		.cfi_endproc
+  56              	.LFE63:
+  57              		.size	main, .-main
+  58 0016 00BF     		.section	.text.DemoGraphics,"ax",%progbits
+  59              		.align	2
+  60              		.global	DemoGraphics
+  61              		.thumb
+  62              		.thumb_func
+  63              		.type	DemoGraphics, %function
+  64              	DemoGraphics:
+  65              	.LFB64:
+  27:main.c        **** }
+  28:main.c        **** 
+  29:main.c        **** //========================================
+  30:main.c        **** // DemoGraphics
+  31:main.c        **** //========================================
+  32:main.c        **** void DemoGraphics()
+  33:main.c        **** {
+  66              		.loc 1 33 0
+  67              		.cfi_startproc
+  68              		@ args = 0, pretend = 0, frame = 1064
+  69              		@ frame_needed = 1, uses_anonymous_args = 0
+  70 0000 80B5     		push	{r7, lr}
+  71              		.cfi_def_cfa_offset 8
+  72              		.cfi_offset 7, -8
+  73              		.cfi_offset 14, -4
+  74 0002 ADF5866D 		sub	sp, sp, #1072
+  75              		.cfi_def_cfa_offset 1080
+  76 0006 02AF     		add	r7, sp, #8
+  77              		.cfi_def_cfa 7, 1072
+  34:main.c        ****     oled_t oled;
+  35:main.c        ****     uint8 slaveAddr = 0x3c;         // OLED slave address
+  78              		.loc 1 35 0
+  79 0008 3C23     		movs	r3, #60
+ARM GAS  C:\Users\seanj\AppData\Local\Temp\cckfTkBz.s 			page 3
+
+
+  80 000a 87F82734 		strb	r3, [r7, #1063]
+  36:main.c        ****     oled_Init(&oled, slaveAddr, I2C_OLED_MasterSendStart, I2C_OLED_MasterSendStop, I2C_OLED_MasterW
+  81              		.loc 1 36 0
+  82 000e 97F82714 		ldrb	r1, [r7, #1063]	@ zero_extendqisi2
+  83 0012 381D     		adds	r0, r7, #4
+  84 0014 6B4B     		ldr	r3, .L5
+  85 0016 0093     		str	r3, [sp]
+  86 0018 6B4B     		ldr	r3, .L5+4
+  87 001a 6C4A     		ldr	r2, .L5+8
+  88 001c FFF7FEFF 		bl	oled_Init
+  37:main.c        ****     oled_SetPenSize(&oled, 1);      // set pen size to 1
+  89              		.loc 1 37 0
+  90 0020 3B1D     		adds	r3, r7, #4
+  91 0022 0121     		movs	r1, #1
+  92 0024 1846     		mov	r0, r3
+  93 0026 FFF7FEFF 		bl	oled_SetPenSize
+  38:main.c        ****     int delay = 1000;
+  94              		.loc 1 38 0
+  95 002a 4FF47A73 		mov	r3, #1000
+  96 002e C7F82034 		str	r3, [r7, #1056]
+  97              	.L4:
+  39:main.c        ****     for (;;){
+  40:main.c        ****         oled_Clear(&oled);                                  // oled_Clear()
+  98              		.loc 1 40 0 discriminator 1
+  99 0032 3B1D     		adds	r3, r7, #4
+ 100 0034 1846     		mov	r0, r3
+ 101 0036 FFF7FEFF 		bl	oled_Clear
+  41:main.c        ****         CyDelay(delay);
+ 102              		.loc 1 41 0 discriminator 1
+ 103 003a D7F82034 		ldr	r3, [r7, #1056]
+ 104 003e 1846     		mov	r0, r3
+ 105 0040 FFF7FEFF 		bl	CyDelay
+  42:main.c        ****         oled_DrawLine(&oled, 32, 32, 96, 32);               // oled_DrawLine()
+ 106              		.loc 1 42 0 discriminator 1
+ 107 0044 381D     		adds	r0, r7, #4
+ 108 0046 2023     		movs	r3, #32
+ 109 0048 0093     		str	r3, [sp]
+ 110 004a 6023     		movs	r3, #96
+ 111 004c 2022     		movs	r2, #32
+ 112 004e 2021     		movs	r1, #32
+ 113 0050 FFF7FEFF 		bl	oled_DrawLine
+  43:main.c        ****         CyDelay(delay);
+ 114              		.loc 1 43 0 discriminator 1
+ 115 0054 D7F82034 		ldr	r3, [r7, #1056]
+ 116 0058 1846     		mov	r0, r3
+ 117 005a FFF7FEFF 		bl	CyDelay
+  44:main.c        ****         oled_Clear(&oled);
+ 118              		.loc 1 44 0 discriminator 1
+ 119 005e 3B1D     		adds	r3, r7, #4
+ 120 0060 1846     		mov	r0, r3
+ 121 0062 FFF7FEFF 		bl	oled_Clear
+  45:main.c        ****         oled_DrawLine(&oled, 32, 16, 96, 48);  
+ 122              		.loc 1 45 0 discriminator 1
+ 123 0066 381D     		adds	r0, r7, #4
+ 124 0068 3023     		movs	r3, #48
+ 125 006a 0093     		str	r3, [sp]
+ 126 006c 6023     		movs	r3, #96
+ARM GAS  C:\Users\seanj\AppData\Local\Temp\cckfTkBz.s 			page 4
+
+
+ 127 006e 1022     		movs	r2, #16
+ 128 0070 2021     		movs	r1, #32
+ 129 0072 FFF7FEFF 		bl	oled_DrawLine
+  46:main.c        ****         CyDelay(delay);
+ 130              		.loc 1 46 0 discriminator 1
+ 131 0076 D7F82034 		ldr	r3, [r7, #1056]
+ 132 007a 1846     		mov	r0, r3
+ 133 007c FFF7FEFF 		bl	CyDelay
+  47:main.c        ****         oled_Clear(&oled);
+ 134              		.loc 1 47 0 discriminator 1
+ 135 0080 3B1D     		adds	r3, r7, #4
+ 136 0082 1846     		mov	r0, r3
+ 137 0084 FFF7FEFF 		bl	oled_Clear
+  48:main.c        ****         oled_DrawLine(&oled, 64, 16, 64, 48);  
+ 138              		.loc 1 48 0 discriminator 1
+ 139 0088 381D     		adds	r0, r7, #4
+ 140 008a 3023     		movs	r3, #48
+ 141 008c 0093     		str	r3, [sp]
+ 142 008e 4023     		movs	r3, #64
+ 143 0090 1022     		movs	r2, #16
+ 144 0092 4021     		movs	r1, #64
+ 145 0094 FFF7FEFF 		bl	oled_DrawLine
+  49:main.c        ****         CyDelay(delay);
+ 146              		.loc 1 49 0 discriminator 1
+ 147 0098 D7F82034 		ldr	r3, [r7, #1056]
+ 148 009c 1846     		mov	r0, r3
+ 149 009e FFF7FEFF 		bl	CyDelay
+  50:main.c        ****         oled_Clear(&oled);
+ 150              		.loc 1 50 0 discriminator 1
+ 151 00a2 3B1D     		adds	r3, r7, #4
+ 152 00a4 1846     		mov	r0, r3
+ 153 00a6 FFF7FEFF 		bl	oled_Clear
+  51:main.c        ****         oled_FillRect(&oled, 32, 16, 96, 48);               // oled_FillRect()
+ 154              		.loc 1 51 0 discriminator 1
+ 155 00aa 381D     		adds	r0, r7, #4
+ 156 00ac 3023     		movs	r3, #48
+ 157 00ae 0093     		str	r3, [sp]
+ 158 00b0 6023     		movs	r3, #96
+ 159 00b2 1022     		movs	r2, #16
+ 160 00b4 2021     		movs	r1, #32
+ 161 00b6 FFF7FEFF 		bl	oled_FillRect
+  52:main.c        ****         CyDelay(delay);
+ 162              		.loc 1 52 0 discriminator 1
+ 163 00ba D7F82034 		ldr	r3, [r7, #1056]
+ 164 00be 1846     		mov	r0, r3
+ 165 00c0 FFF7FEFF 		bl	CyDelay
+  53:main.c        ****         oled_Clear(&oled);
+ 166              		.loc 1 53 0 discriminator 1
+ 167 00c4 3B1D     		adds	r3, r7, #4
+ 168 00c6 1846     		mov	r0, r3
+ 169 00c8 FFF7FEFF 		bl	oled_Clear
+  54:main.c        ****         oled_FillRoundedRect(&oled, 32, 16, 96, 48, 10);    // oled_FillRoundedRect()
+ 170              		.loc 1 54 0 discriminator 1
+ 171 00cc 381D     		adds	r0, r7, #4
+ 172 00ce 0A23     		movs	r3, #10
+ 173 00d0 0193     		str	r3, [sp, #4]
+ 174 00d2 3023     		movs	r3, #48
+ARM GAS  C:\Users\seanj\AppData\Local\Temp\cckfTkBz.s 			page 5
+
+
+ 175 00d4 0093     		str	r3, [sp]
+ 176 00d6 6023     		movs	r3, #96
+ 177 00d8 1022     		movs	r2, #16
+ 178 00da 2021     		movs	r1, #32
+ 179 00dc FFF7FEFF 		bl	oled_FillRoundedRect
+  55:main.c        ****         CyDelay(delay);
+ 180              		.loc 1 55 0 discriminator 1
+ 181 00e0 D7F82034 		ldr	r3, [r7, #1056]
+ 182 00e4 1846     		mov	r0, r3
+ 183 00e6 FFF7FEFF 		bl	CyDelay
+  56:main.c        ****         oled_Clear(&oled);
+ 184              		.loc 1 56 0 discriminator 1
+ 185 00ea 3B1D     		adds	r3, r7, #4
+ 186 00ec 1846     		mov	r0, r3
+ 187 00ee FFF7FEFF 		bl	oled_Clear
+  57:main.c        ****         oled_DrawRect(&oled, 32, 16, 96, 48);               // oled_DrawRect()
+ 188              		.loc 1 57 0 discriminator 1
+ 189 00f2 381D     		adds	r0, r7, #4
+ 190 00f4 3023     		movs	r3, #48
+ 191 00f6 0093     		str	r3, [sp]
+ 192 00f8 6023     		movs	r3, #96
+ 193 00fa 1022     		movs	r2, #16
+ 194 00fc 2021     		movs	r1, #32
+ 195 00fe FFF7FEFF 		bl	oled_DrawRect
+  58:main.c        ****         CyDelay(delay);
+ 196              		.loc 1 58 0 discriminator 1
+ 197 0102 D7F82034 		ldr	r3, [r7, #1056]
+ 198 0106 1846     		mov	r0, r3
+ 199 0108 FFF7FEFF 		bl	CyDelay
+  59:main.c        ****         oled_Clear(&oled);
+ 200              		.loc 1 59 0 discriminator 1
+ 201 010c 3B1D     		adds	r3, r7, #4
+ 202 010e 1846     		mov	r0, r3
+ 203 0110 FFF7FEFF 		bl	oled_Clear
+  60:main.c        ****         oled_DrawRoundedRect(&oled, 32, 16, 96, 48, 10);    // oled_DrawRoundedRect()
+ 204              		.loc 1 60 0 discriminator 1
+ 205 0114 381D     		adds	r0, r7, #4
+ 206 0116 0A23     		movs	r3, #10
+ 207 0118 0193     		str	r3, [sp, #4]
+ 208 011a 3023     		movs	r3, #48
+ 209 011c 0093     		str	r3, [sp]
+ 210 011e 6023     		movs	r3, #96
+ 211 0120 1022     		movs	r2, #16
+ 212 0122 2021     		movs	r1, #32
+ 213 0124 FFF7FEFF 		bl	oled_DrawRoundedRect
+  61:main.c        ****         CyDelay(delay);
+ 214              		.loc 1 61 0 discriminator 1
+ 215 0128 D7F82034 		ldr	r3, [r7, #1056]
+ 216 012c 1846     		mov	r0, r3
+ 217 012e FFF7FEFF 		bl	CyDelay
+  62:main.c        ****         oled_Clear(&oled);
+ 218              		.loc 1 62 0 discriminator 1
+ 219 0132 3B1D     		adds	r3, r7, #4
+ 220 0134 1846     		mov	r0, r3
+ 221 0136 FFF7FEFF 		bl	oled_Clear
+  63:main.c        ****         oled_DrawCircle(&oled,64, 32, 20);                  // oled_DrawCircle()
+ 222              		.loc 1 63 0 discriminator 1
+ARM GAS  C:\Users\seanj\AppData\Local\Temp\cckfTkBz.s 			page 6
+
+
+ 223 013a 381D     		adds	r0, r7, #4
+ 224 013c 1423     		movs	r3, #20
+ 225 013e 2022     		movs	r2, #32
+ 226 0140 4021     		movs	r1, #64
+ 227 0142 FFF7FEFF 		bl	oled_DrawCircle
+  64:main.c        ****         CyDelay(delay);
+ 228              		.loc 1 64 0 discriminator 1
+ 229 0146 D7F82034 		ldr	r3, [r7, #1056]
+ 230 014a 1846     		mov	r0, r3
+ 231 014c FFF7FEFF 		bl	CyDelay
+  65:main.c        ****         oled_Clear(&oled);
+ 232              		.loc 1 65 0 discriminator 1
+ 233 0150 3B1D     		adds	r3, r7, #4
+ 234 0152 1846     		mov	r0, r3
+ 235 0154 FFF7FEFF 		bl	oled_Clear
+  66:main.c        ****         oled_DrawArc(&oled,64, 32, 20, 5, 8);               // oled_DrawCircle()
+ 236              		.loc 1 66 0 discriminator 1
+ 237 0158 381D     		adds	r0, r7, #4
+ 238 015a 0823     		movs	r3, #8
+ 239 015c 0193     		str	r3, [sp, #4]
+ 240 015e 0523     		movs	r3, #5
+ 241 0160 0093     		str	r3, [sp]
+ 242 0162 1423     		movs	r3, #20
+ 243 0164 2022     		movs	r2, #32
+ 244 0166 4021     		movs	r1, #64
+ 245 0168 FFF7FEFF 		bl	oled_DrawArc
+  67:main.c        ****         CyDelay(delay);
+ 246              		.loc 1 67 0 discriminator 1
+ 247 016c D7F82034 		ldr	r3, [r7, #1056]
+ 248 0170 1846     		mov	r0, r3
+ 249 0172 FFF7FEFF 		bl	CyDelay
+  68:main.c        ****         oled_Clear(&oled);
+ 250              		.loc 1 68 0 discriminator 1
+ 251 0176 3B1D     		adds	r3, r7, #4
+ 252 0178 1846     		mov	r0, r3
+ 253 017a FFF7FEFF 		bl	oled_Clear
+  69:main.c        ****         oled_FillCircle(&oled,64, 32, 20);                  // oled_FillCircle()
+ 254              		.loc 1 69 0 discriminator 1
+ 255 017e 381D     		adds	r0, r7, #4
+ 256 0180 1423     		movs	r3, #20
+ 257 0182 2022     		movs	r2, #32
+ 258 0184 4021     		movs	r1, #64
+ 259 0186 FFF7FEFF 		bl	oled_FillCircle
+  70:main.c        ****         CyDelay(delay);
+ 260              		.loc 1 70 0 discriminator 1
+ 261 018a D7F82034 		ldr	r3, [r7, #1056]
+ 262 018e 1846     		mov	r0, r3
+ 263 0190 FFF7FEFF 		bl	CyDelay
+  71:main.c        ****         oled_Clear(&oled);
+ 264              		.loc 1 71 0 discriminator 1
+ 265 0194 3B1D     		adds	r3, r7, #4
+ 266 0196 1846     		mov	r0, r3
+ 267 0198 FFF7FEFF 		bl	oled_Clear
+  72:main.c        ****         oled_DrawPie(&oled,64, 32, 20, 5, 8);               // oled_DrawPie()
+ 268              		.loc 1 72 0 discriminator 1
+ 269 019c 381D     		adds	r0, r7, #4
+ 270 019e 0823     		movs	r3, #8
+ARM GAS  C:\Users\seanj\AppData\Local\Temp\cckfTkBz.s 			page 7
+
+
+ 271 01a0 0193     		str	r3, [sp, #4]
+ 272 01a2 0523     		movs	r3, #5
+ 273 01a4 0093     		str	r3, [sp]
+ 274 01a6 1423     		movs	r3, #20
+ 275 01a8 2022     		movs	r2, #32
+ 276 01aa 4021     		movs	r1, #64
+ 277 01ac FFF7FEFF 		bl	oled_DrawPie
+  73:main.c        ****         CyDelay(delay);
+ 278              		.loc 1 73 0 discriminator 1
+ 279 01b0 D7F82034 		ldr	r3, [r7, #1056]
+ 280 01b4 1846     		mov	r0, r3
+ 281 01b6 FFF7FEFF 		bl	CyDelay
+  74:main.c        ****         oled_Clear(&oled);   
+ 282              		.loc 1 74 0 discriminator 1
+ 283 01ba 3B1D     		adds	r3, r7, #4
+ 284 01bc 1846     		mov	r0, r3
+ 285 01be FFF7FEFF 		bl	oled_Clear
+  75:main.c        ****     }
+ 286              		.loc 1 75 0 discriminator 1
+ 287 01c2 36E7     		b	.L4
+ 288              	.L6:
+ 289              		.align	2
+ 290              	.L5:
+ 291 01c4 00000000 		.word	I2C_OLED_MasterWriteByte
+ 292 01c8 00000000 		.word	I2C_OLED_MasterSendStop
+ 293 01cc 00000000 		.word	I2C_OLED_MasterSendStart
+ 294              		.cfi_endproc
+ 295              	.LFE64:
+ 296              		.size	DemoGraphics, .-DemoGraphics
+ 297              		.section	.rodata
+ 298              		.align	2
+ 299              	.LC0:
+ 300 0000 57454C43 		.ascii	"WELCOME\012TO\012ELECTRONIX\012FIRST\000"
+ 300      4F4D450A 
+ 300      544F0A45 
+ 300      4C454354 
+ 300      524F4E49 
+ 301              		.section	.text.DemoText,"ax",%progbits
+ 302              		.align	2
+ 303              		.global	DemoText
+ 304              		.thumb
+ 305              		.thumb_func
+ 306              		.type	DemoText, %function
+ 307              	DemoText:
+ 308              	.LFB65:
+  76:main.c        **** }
+  77:main.c        **** 
+  78:main.c        **** //========================================
+  79:main.c        **** // oled_DemoText
+  80:main.c        **** //========================================
+  81:main.c        **** void DemoText(void)
+  82:main.c        **** {
+ 309              		.loc 1 82 0
+ 310              		.cfi_startproc
+ 311              		@ args = 0, pretend = 0, frame = 1056
+ 312              		@ frame_needed = 1, uses_anonymous_args = 0
+ 313 0000 80B5     		push	{r7, lr}
+ARM GAS  C:\Users\seanj\AppData\Local\Temp\cckfTkBz.s 			page 8
+
+
+ 314              		.cfi_def_cfa_offset 8
+ 315              		.cfi_offset 7, -8
+ 316              		.cfi_offset 14, -4
+ 317 0002 ADF5856D 		sub	sp, sp, #1064
+ 318              		.cfi_def_cfa_offset 1072
+ 319 0006 02AF     		add	r7, sp, #8
+ 320              		.cfi_def_cfa 7, 1064
+  83:main.c        ****     oled_t oled;
+  84:main.c        ****     uint8 slaveAddr = 0x3c;         // OLED slave address
+ 321              		.loc 1 84 0
+ 322 0008 3C23     		movs	r3, #60
+ 323 000a 87F81F34 		strb	r3, [r7, #1055]
+  85:main.c        ****     oled_Init(&oled, slaveAddr, I2C_OLED_MasterSendStart, I2C_OLED_MasterSendStop, I2C_OLED_MasterW
+ 324              		.loc 1 85 0
+ 325 000e 97F81F14 		ldrb	r1, [r7, #1055]	@ zero_extendqisi2
+ 326 0012 3846     		mov	r0, r7
+ 327 0014 0A4B     		ldr	r3, .L8
+ 328 0016 0093     		str	r3, [sp]
+ 329 0018 0A4B     		ldr	r3, .L8+4
+ 330 001a 0B4A     		ldr	r2, .L8+8
+ 331 001c FFF7FEFF 		bl	oled_Init
+  86:main.c        ****     oled_Clear(&oled);
+ 332              		.loc 1 86 0
+ 333 0020 3B46     		mov	r3, r7
+ 334 0022 1846     		mov	r0, r3
+ 335 0024 FFF7FEFF 		bl	oled_Clear
+  87:main.c        ****     oled_DispString(&oled, 0, 0, "WELCOME\nTO\nELECTRONIX\nFIRST");
+ 336              		.loc 1 87 0
+ 337 0028 3846     		mov	r0, r7
+ 338 002a 084B     		ldr	r3, .L8+12
+ 339 002c 0022     		movs	r2, #0
+ 340 002e 0021     		movs	r1, #0
+ 341 0030 FFF7FEFF 		bl	oled_DispString
+  88:main.c        **** }
+ 342              		.loc 1 88 0
+ 343 0034 00BF     		nop
+ 344 0036 07F58467 		add	r7, r7, #1056
+ 345              		.cfi_def_cfa_offset 8
+ 346 003a BD46     		mov	sp, r7
+ 347              		.cfi_def_cfa_register 13
+ 348              		@ sp needed
+ 349 003c 80BD     		pop	{r7, pc}
+ 350              	.L9:
+ 351 003e 00BF     		.align	2
+ 352              	.L8:
+ 353 0040 00000000 		.word	I2C_OLED_MasterWriteByte
+ 354 0044 00000000 		.word	I2C_OLED_MasterSendStop
+ 355 0048 00000000 		.word	I2C_OLED_MasterSendStart
+ 356 004c 00000000 		.word	.LC0
+ 357              		.cfi_endproc
+ 358              	.LFE65:
+ 359              		.size	DemoText, .-DemoText
+ 360              		.section	.text.DemoBitmap,"ax",%progbits
+ 361              		.align	2
+ 362              		.global	DemoBitmap
+ 363              		.thumb
+ 364              		.thumb_func
+ARM GAS  C:\Users\seanj\AppData\Local\Temp\cckfTkBz.s 			page 9
+
+
+ 365              		.type	DemoBitmap, %function
+ 366              	DemoBitmap:
+ 367              	.LFB66:
+  89:main.c        **** 
+  90:main.c        **** //========================================
+  91:main.c        **** // DemoBitmap
+  92:main.c        **** //========================================
+  93:main.c        **** void DemoBitmap(void)
+  94:main.c        **** {
+ 368              		.loc 1 94 0
+ 369              		.cfi_startproc
+ 370              		@ args = 0, pretend = 0, frame = 1064
+ 371              		@ frame_needed = 1, uses_anonymous_args = 0
+ 372 0000 80B5     		push	{r7, lr}
+ 373              		.cfi_def_cfa_offset 8
+ 374              		.cfi_offset 7, -8
+ 375              		.cfi_offset 14, -4
+ 376 0002 ADF5866D 		sub	sp, sp, #1072
+ 377              		.cfi_def_cfa_offset 1080
+ 378 0006 02AF     		add	r7, sp, #8
+ 379              		.cfi_def_cfa 7, 1072
+  95:main.c        ****     oled_t oled;
+  96:main.c        ****     uint8 slaveAddr = 0x3c;                 // OLED slave address
+ 380              		.loc 1 96 0
+ 381 0008 3C23     		movs	r3, #60
+ 382 000a 87F82734 		strb	r3, [r7, #1063]
+  97:main.c        ****     oled_Init(&oled, slaveAddr, I2C_OLED_MasterSendStart, I2C_OLED_MasterSendStop, I2C_OLED_MasterW
+ 383              		.loc 1 97 0
+ 384 000e 97F82714 		ldrb	r1, [r7, #1063]	@ zero_extendqisi2
+ 385 0012 3846     		mov	r0, r7
+ 386 0014 114B     		ldr	r3, .L11
+ 387 0016 0093     		str	r3, [sp]
+ 388 0018 114B     		ldr	r3, .L11+4
+ 389 001a 124A     		ldr	r2, .L11+8
+ 390 001c FFF7FEFF 		bl	oled_Init
+  98:main.c        ****     oled_Clear(&oled);
+ 391              		.loc 1 98 0
+ 392 0020 3B46     		mov	r3, r7
+ 393 0022 1846     		mov	r0, r3
+ 394 0024 FFF7FEFF 		bl	oled_Clear
+  99:main.c        ****     int MIT_width = 64, MIT_height = 38;    // height and width of bitmap
+ 395              		.loc 1 99 0
+ 396 0028 4023     		movs	r3, #64
+ 397 002a C7F82034 		str	r3, [r7, #1056]
+ 398 002e 2623     		movs	r3, #38
+ 399 0030 C7F81C34 		str	r3, [r7, #1052]
+ 100:main.c        ****     static unsigned char MIT_bits[] = {
+ 101:main.c        ****         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+ 102:main.c        ****         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+ 103:main.c        ****         0xf8, 0xc1, 0x0f, 0x7e, 0xf0, 0x83, 0xff, 0x3f, 0xf8, 0xc1, 0x0f, 0x7e,
+ 104:main.c        ****         0xf0, 0x83, 0xff, 0x3f, 0xf8, 0xc1, 0x0f, 0x7e, 0xf0, 0x83, 0xff, 0x3f,
+ 105:main.c        ****         0xf8, 0xc1, 0x0f, 0x7e, 0xf0, 0x83, 0xff, 0x3f, 0xf8, 0xc1, 0x0f, 0x7e,
+ 106:main.c        ****         0xf0, 0x83, 0xff, 0x3f, 0xf8, 0xc1, 0x0f, 0x7e, 0xf0, 0x83, 0xff, 0x3f,
+ 107:main.c        ****         0xf8, 0xc1, 0x0f, 0x7e, 0x00, 0x00, 0x00, 0x00, 0xf8, 0xc1, 0x0f, 0x7e,
+ 108:main.c        ****         0x00, 0x00, 0x00, 0x00, 0xf8, 0xc1, 0x0f, 0x7e, 0x00, 0x00, 0x00, 0x00,
+ 109:main.c        ****         0xf8, 0xc1, 0x0f, 0x7e, 0x00, 0x00, 0x00, 0x00, 0xf8, 0xc1, 0x0f, 0x7e,
+ 110:main.c        ****         0x00, 0x00, 0x00, 0x00, 0xf8, 0xc1, 0x0f, 0x7e, 0xf0, 0x83, 0x1f, 0x00,
+ARM GAS  C:\Users\seanj\AppData\Local\Temp\cckfTkBz.s 			page 10
+
+
+ 111:main.c        ****         0xf8, 0xc1, 0x0f, 0x7e, 0xf0, 0x83, 0x1f, 0x00, 0xf8, 0xc1, 0x0f, 0x7e,
+ 112:main.c        ****         0xf0, 0x83, 0x1f, 0x00, 0xf8, 0xc1, 0x0f, 0x7e, 0xf0, 0x83, 0x1f, 0x00,
+ 113:main.c        ****         0xf8, 0xc1, 0x0f, 0x7e, 0xf0, 0x83, 0x1f, 0x00, 0xf8, 0xc1, 0x0f, 0x7e,
+ 114:main.c        ****         0xf0, 0x83, 0x1f, 0x00, 0xf8, 0xc1, 0x0f, 0x7e, 0xf0, 0x83, 0x1f, 0x00,
+ 115:main.c        ****         0xf8, 0xc1, 0x0f, 0x7e, 0xf0, 0x83, 0x1f, 0x00, 0xf8, 0xc1, 0x0f, 0x7e,
+ 116:main.c        ****         0xf0, 0x83, 0x1f, 0x00, 0xf8, 0xc1, 0x0f, 0x7e, 0xf0, 0x83, 0x1f, 0x00,
+ 117:main.c        ****         0xf8, 0x01, 0x00, 0x7e, 0xf0, 0x83, 0x1f, 0x00, 0xf8, 0x01, 0x00, 0x7e,
+ 118:main.c        ****         0xf0, 0x83, 0x1f, 0x00, 0xf8, 0x01, 0x00, 0x7e, 0xf0, 0x83, 0x1f, 0x00,
+ 119:main.c        ****         0xf8, 0x01, 0x00, 0x7e, 0xf0, 0x83, 0x1f, 0x00, 0xf8, 0x01, 0x00, 0x7e,
+ 120:main.c        ****         0xf0, 0x83, 0x1f, 0x00, 0xf8, 0x01, 0x00, 0x7e, 0xf0, 0x83, 0x1f, 0x00,
+ 121:main.c        ****         0xf8, 0x01, 0x00, 0x7e, 0xf0, 0x83, 0x1f, 0x00, 0xf8, 0x01, 0x00, 0x7e,
+ 122:main.c        ****         0xf0, 0x83, 0x1f, 0x00, 0xf8, 0x01, 0x00, 0x7e, 0xf0, 0x83, 0x1f, 0x00,
+ 123:main.c        ****         0xf8, 0x01, 0x00, 0x7e, 0xf0, 0x83, 0x1f, 0x00, 0xf8, 0x01, 0x00, 0x7e,
+ 124:main.c        ****         0xf0, 0x83, 0x1f, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+ 125:main.c        ****         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+ 126:main.c        ****         0x00, 0x00, 0x00, 0x00 
+ 127:main.c        ****     };
+ 128:main.c        ****     oled_DispBitmap(&oled, 32, 13, MIT_bits, MIT_width, MIT_height);    // display bitmap
+ 400              		.loc 1 128 0
+ 401 0034 D7F82034 		ldr	r3, [r7, #1056]
+ 402 0038 9BB2     		uxth	r3, r3
+ 403 003a D7F81C24 		ldr	r2, [r7, #1052]
+ 404 003e 92B2     		uxth	r2, r2
+ 405 0040 3846     		mov	r0, r7
+ 406 0042 0192     		str	r2, [sp, #4]
+ 407 0044 0093     		str	r3, [sp]
+ 408 0046 084B     		ldr	r3, .L11+12
+ 409 0048 0D22     		movs	r2, #13
+ 410 004a 2021     		movs	r1, #32
+ 411 004c FFF7FEFF 		bl	oled_DispBitmap
+ 129:main.c        **** }
+ 412              		.loc 1 129 0
+ 413 0050 00BF     		nop
+ 414 0052 07F58567 		add	r7, r7, #1064
+ 415              		.cfi_def_cfa_offset 8
+ 416 0056 BD46     		mov	sp, r7
+ 417              		.cfi_def_cfa_register 13
+ 418              		@ sp needed
+ 419 0058 80BD     		pop	{r7, pc}
+ 420              	.L12:
+ 421 005a 00BF     		.align	2
+ 422              	.L11:
+ 423 005c 00000000 		.word	I2C_OLED_MasterWriteByte
+ 424 0060 00000000 		.word	I2C_OLED_MasterSendStop
+ 425 0064 00000000 		.word	I2C_OLED_MasterSendStart
+ 426 0068 00000000 		.word	MIT_bits.5796
+ 427              		.cfi_endproc
+ 428              	.LFE66:
+ 429              		.size	DemoBitmap, .-DemoBitmap
+ 430              		.data
+ 431              		.align	2
+ 432              		.type	MIT_bits.5796, %object
+ 433              		.size	MIT_bits.5796, 304
+ 434              	MIT_bits.5796:
+ 435 0000 00       		.byte	0
+ 436 0001 00       		.byte	0
+ 437 0002 00       		.byte	0
+ARM GAS  C:\Users\seanj\AppData\Local\Temp\cckfTkBz.s 			page 11
+
+
+ 438 0003 00       		.byte	0
+ 439 0004 00       		.byte	0
+ 440 0005 00       		.byte	0
+ 441 0006 00       		.byte	0
+ 442 0007 00       		.byte	0
+ 443 0008 00       		.byte	0
+ 444 0009 00       		.byte	0
+ 445 000a 00       		.byte	0
+ 446 000b 00       		.byte	0
+ 447 000c 00       		.byte	0
+ 448 000d 00       		.byte	0
+ 449 000e 00       		.byte	0
+ 450 000f 00       		.byte	0
+ 451 0010 00       		.byte	0
+ 452 0011 00       		.byte	0
+ 453 0012 00       		.byte	0
+ 454 0013 00       		.byte	0
+ 455 0014 00       		.byte	0
+ 456 0015 00       		.byte	0
+ 457 0016 00       		.byte	0
+ 458 0017 00       		.byte	0
+ 459 0018 F8       		.byte	-8
+ 460 0019 C1       		.byte	-63
+ 461 001a 0F       		.byte	15
+ 462 001b 7E       		.byte	126
+ 463 001c F0       		.byte	-16
+ 464 001d 83       		.byte	-125
+ 465 001e FF       		.byte	-1
+ 466 001f 3F       		.byte	63
+ 467 0020 F8       		.byte	-8
+ 468 0021 C1       		.byte	-63
+ 469 0022 0F       		.byte	15
+ 470 0023 7E       		.byte	126
+ 471 0024 F0       		.byte	-16
+ 472 0025 83       		.byte	-125
+ 473 0026 FF       		.byte	-1
+ 474 0027 3F       		.byte	63
+ 475 0028 F8       		.byte	-8
+ 476 0029 C1       		.byte	-63
+ 477 002a 0F       		.byte	15
+ 478 002b 7E       		.byte	126
+ 479 002c F0       		.byte	-16
+ 480 002d 83       		.byte	-125
+ 481 002e FF       		.byte	-1
+ 482 002f 3F       		.byte	63
+ 483 0030 F8       		.byte	-8
+ 484 0031 C1       		.byte	-63
+ 485 0032 0F       		.byte	15
+ 486 0033 7E       		.byte	126
+ 487 0034 F0       		.byte	-16
+ 488 0035 83       		.byte	-125
+ 489 0036 FF       		.byte	-1
+ 490 0037 3F       		.byte	63
+ 491 0038 F8       		.byte	-8
+ 492 0039 C1       		.byte	-63
+ 493 003a 0F       		.byte	15
+ 494 003b 7E       		.byte	126
+ARM GAS  C:\Users\seanj\AppData\Local\Temp\cckfTkBz.s 			page 12
+
+
+ 495 003c F0       		.byte	-16
+ 496 003d 83       		.byte	-125
+ 497 003e FF       		.byte	-1
+ 498 003f 3F       		.byte	63
+ 499 0040 F8       		.byte	-8
+ 500 0041 C1       		.byte	-63
+ 501 0042 0F       		.byte	15
+ 502 0043 7E       		.byte	126
+ 503 0044 F0       		.byte	-16
+ 504 0045 83       		.byte	-125
+ 505 0046 FF       		.byte	-1
+ 506 0047 3F       		.byte	63
+ 507 0048 F8       		.byte	-8
+ 508 0049 C1       		.byte	-63
+ 509 004a 0F       		.byte	15
+ 510 004b 7E       		.byte	126
+ 511 004c 00       		.byte	0
+ 512 004d 00       		.byte	0
+ 513 004e 00       		.byte	0
+ 514 004f 00       		.byte	0
+ 515 0050 F8       		.byte	-8
+ 516 0051 C1       		.byte	-63
+ 517 0052 0F       		.byte	15
+ 518 0053 7E       		.byte	126
+ 519 0054 00       		.byte	0
+ 520 0055 00       		.byte	0
+ 521 0056 00       		.byte	0
+ 522 0057 00       		.byte	0
+ 523 0058 F8       		.byte	-8
+ 524 0059 C1       		.byte	-63
+ 525 005a 0F       		.byte	15
+ 526 005b 7E       		.byte	126
+ 527 005c 00       		.byte	0
+ 528 005d 00       		.byte	0
+ 529 005e 00       		.byte	0
+ 530 005f 00       		.byte	0
+ 531 0060 F8       		.byte	-8
+ 532 0061 C1       		.byte	-63
+ 533 0062 0F       		.byte	15
+ 534 0063 7E       		.byte	126
+ 535 0064 00       		.byte	0
+ 536 0065 00       		.byte	0
+ 537 0066 00       		.byte	0
+ 538 0067 00       		.byte	0
+ 539 0068 F8       		.byte	-8
+ 540 0069 C1       		.byte	-63
+ 541 006a 0F       		.byte	15
+ 542 006b 7E       		.byte	126
+ 543 006c 00       		.byte	0
+ 544 006d 00       		.byte	0
+ 545 006e 00       		.byte	0
+ 546 006f 00       		.byte	0
+ 547 0070 F8       		.byte	-8
+ 548 0071 C1       		.byte	-63
+ 549 0072 0F       		.byte	15
+ 550 0073 7E       		.byte	126
+ 551 0074 F0       		.byte	-16
+ARM GAS  C:\Users\seanj\AppData\Local\Temp\cckfTkBz.s 			page 13
+
+
+ 552 0075 83       		.byte	-125
+ 553 0076 1F       		.byte	31
+ 554 0077 00       		.byte	0
+ 555 0078 F8       		.byte	-8
+ 556 0079 C1       		.byte	-63
+ 557 007a 0F       		.byte	15
+ 558 007b 7E       		.byte	126
+ 559 007c F0       		.byte	-16
+ 560 007d 83       		.byte	-125
+ 561 007e 1F       		.byte	31
+ 562 007f 00       		.byte	0
+ 563 0080 F8       		.byte	-8
+ 564 0081 C1       		.byte	-63
+ 565 0082 0F       		.byte	15
+ 566 0083 7E       		.byte	126
+ 567 0084 F0       		.byte	-16
+ 568 0085 83       		.byte	-125
+ 569 0086 1F       		.byte	31
+ 570 0087 00       		.byte	0
+ 571 0088 F8       		.byte	-8
+ 572 0089 C1       		.byte	-63
+ 573 008a 0F       		.byte	15
+ 574 008b 7E       		.byte	126
+ 575 008c F0       		.byte	-16
+ 576 008d 83       		.byte	-125
+ 577 008e 1F       		.byte	31
+ 578 008f 00       		.byte	0
+ 579 0090 F8       		.byte	-8
+ 580 0091 C1       		.byte	-63
+ 581 0092 0F       		.byte	15
+ 582 0093 7E       		.byte	126
+ 583 0094 F0       		.byte	-16
+ 584 0095 83       		.byte	-125
+ 585 0096 1F       		.byte	31
+ 586 0097 00       		.byte	0
+ 587 0098 F8       		.byte	-8
+ 588 0099 C1       		.byte	-63
+ 589 009a 0F       		.byte	15
+ 590 009b 7E       		.byte	126
+ 591 009c F0       		.byte	-16
+ 592 009d 83       		.byte	-125
+ 593 009e 1F       		.byte	31
+ 594 009f 00       		.byte	0
+ 595 00a0 F8       		.byte	-8
+ 596 00a1 C1       		.byte	-63
+ 597 00a2 0F       		.byte	15
+ 598 00a3 7E       		.byte	126
+ 599 00a4 F0       		.byte	-16
+ 600 00a5 83       		.byte	-125
+ 601 00a6 1F       		.byte	31
+ 602 00a7 00       		.byte	0
+ 603 00a8 F8       		.byte	-8
+ 604 00a9 C1       		.byte	-63
+ 605 00aa 0F       		.byte	15
+ 606 00ab 7E       		.byte	126
+ 607 00ac F0       		.byte	-16
+ 608 00ad 83       		.byte	-125
+ARM GAS  C:\Users\seanj\AppData\Local\Temp\cckfTkBz.s 			page 14
+
+
+ 609 00ae 1F       		.byte	31
+ 610 00af 00       		.byte	0
+ 611 00b0 F8       		.byte	-8
+ 612 00b1 C1       		.byte	-63
+ 613 00b2 0F       		.byte	15
+ 614 00b3 7E       		.byte	126
+ 615 00b4 F0       		.byte	-16
+ 616 00b5 83       		.byte	-125
+ 617 00b6 1F       		.byte	31
+ 618 00b7 00       		.byte	0
+ 619 00b8 F8       		.byte	-8
+ 620 00b9 C1       		.byte	-63
+ 621 00ba 0F       		.byte	15
+ 622 00bb 7E       		.byte	126
+ 623 00bc F0       		.byte	-16
+ 624 00bd 83       		.byte	-125
+ 625 00be 1F       		.byte	31
+ 626 00bf 00       		.byte	0
+ 627 00c0 F8       		.byte	-8
+ 628 00c1 01       		.byte	1
+ 629 00c2 00       		.byte	0
+ 630 00c3 7E       		.byte	126
+ 631 00c4 F0       		.byte	-16
+ 632 00c5 83       		.byte	-125
+ 633 00c6 1F       		.byte	31
+ 634 00c7 00       		.byte	0
+ 635 00c8 F8       		.byte	-8
+ 636 00c9 01       		.byte	1
+ 637 00ca 00       		.byte	0
+ 638 00cb 7E       		.byte	126
+ 639 00cc F0       		.byte	-16
+ 640 00cd 83       		.byte	-125
+ 641 00ce 1F       		.byte	31
+ 642 00cf 00       		.byte	0
+ 643 00d0 F8       		.byte	-8
+ 644 00d1 01       		.byte	1
+ 645 00d2 00       		.byte	0
+ 646 00d3 7E       		.byte	126
+ 647 00d4 F0       		.byte	-16
+ 648 00d5 83       		.byte	-125
+ 649 00d6 1F       		.byte	31
+ 650 00d7 00       		.byte	0
+ 651 00d8 F8       		.byte	-8
+ 652 00d9 01       		.byte	1
+ 653 00da 00       		.byte	0
+ 654 00db 7E       		.byte	126
+ 655 00dc F0       		.byte	-16
+ 656 00dd 83       		.byte	-125
+ 657 00de 1F       		.byte	31
+ 658 00df 00       		.byte	0
+ 659 00e0 F8       		.byte	-8
+ 660 00e1 01       		.byte	1
+ 661 00e2 00       		.byte	0
+ 662 00e3 7E       		.byte	126
+ 663 00e4 F0       		.byte	-16
+ 664 00e5 83       		.byte	-125
+ 665 00e6 1F       		.byte	31
+ARM GAS  C:\Users\seanj\AppData\Local\Temp\cckfTkBz.s 			page 15
+
+
+ 666 00e7 00       		.byte	0
+ 667 00e8 F8       		.byte	-8
+ 668 00e9 01       		.byte	1
+ 669 00ea 00       		.byte	0
+ 670 00eb 7E       		.byte	126
+ 671 00ec F0       		.byte	-16
+ 672 00ed 83       		.byte	-125
+ 673 00ee 1F       		.byte	31
+ 674 00ef 00       		.byte	0
+ 675 00f0 F8       		.byte	-8
+ 676 00f1 01       		.byte	1
+ 677 00f2 00       		.byte	0
+ 678 00f3 7E       		.byte	126
+ 679 00f4 F0       		.byte	-16
+ 680 00f5 83       		.byte	-125
+ 681 00f6 1F       		.byte	31
+ 682 00f7 00       		.byte	0
+ 683 00f8 F8       		.byte	-8
+ 684 00f9 01       		.byte	1
+ 685 00fa 00       		.byte	0
+ 686 00fb 7E       		.byte	126
+ 687 00fc F0       		.byte	-16
+ 688 00fd 83       		.byte	-125
+ 689 00fe 1F       		.byte	31
+ 690 00ff 00       		.byte	0
+ 691 0100 F8       		.byte	-8
+ 692 0101 01       		.byte	1
+ 693 0102 00       		.byte	0
+ 694 0103 7E       		.byte	126
+ 695 0104 F0       		.byte	-16
+ 696 0105 83       		.byte	-125
+ 697 0106 1F       		.byte	31
+ 698 0107 00       		.byte	0
+ 699 0108 F8       		.byte	-8
+ 700 0109 01       		.byte	1
+ 701 010a 00       		.byte	0
+ 702 010b 7E       		.byte	126
+ 703 010c F0       		.byte	-16
+ 704 010d 83       		.byte	-125
+ 705 010e 1F       		.byte	31
+ 706 010f 00       		.byte	0
+ 707 0110 F8       		.byte	-8
+ 708 0111 01       		.byte	1
+ 709 0112 00       		.byte	0
+ 710 0113 7E       		.byte	126
+ 711 0114 F0       		.byte	-16
+ 712 0115 83       		.byte	-125
+ 713 0116 1F       		.byte	31
+ 714 0117 00       		.byte	0
+ 715 0118 00       		.byte	0
+ 716 0119 00       		.byte	0
+ 717 011a 00       		.byte	0
+ 718 011b 00       		.byte	0
+ 719 011c 00       		.byte	0
+ 720 011d 00       		.byte	0
+ 721 011e 00       		.byte	0
+ 722 011f 00       		.byte	0
+ARM GAS  C:\Users\seanj\AppData\Local\Temp\cckfTkBz.s 			page 16
+
+
+ 723 0120 00       		.byte	0
+ 724 0121 00       		.byte	0
+ 725 0122 00       		.byte	0
+ 726 0123 00       		.byte	0
+ 727 0124 00       		.byte	0
+ 728 0125 00       		.byte	0
+ 729 0126 00       		.byte	0
+ 730 0127 00       		.byte	0
+ 731 0128 00       		.byte	0
+ 732 0129 00       		.byte	0
+ 733 012a 00       		.byte	0
+ 734 012b 00       		.byte	0
+ 735 012c 00       		.byte	0
+ 736 012d 00       		.byte	0
+ 737 012e 00       		.byte	0
+ 738 012f 00       		.byte	0
+ 739              		.text
+ 740              	.Letext0:
+ 741              		.file 2 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 742              		.file 3 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 743              		.file 4 "Generated_Source\\PSoC5/cytypes.h"
+ 744              		.file 5 "font.h"
+ 745              		.file 6 "oled.h"
+ 746              		.file 7 "Generated_Source\\PSoC5/core_cm3.h"
+ 747              		.section	.debug_info,"",%progbits
+ 748              	.Ldebug_info0:
+ 749 0000 00030000 		.4byte	0x300
+ 750 0004 0400     		.2byte	0x4
+ 751 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 752 000a 04       		.byte	0x4
+ 753 000b 01       		.uleb128 0x1
+ 754 000c 07000000 		.4byte	.LASF41
+ 755 0010 0C       		.byte	0xc
+ 756 0011 00020000 		.4byte	.LASF42
+ 757 0015 01010000 		.4byte	.LASF43
+ 758 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 759 001d 00000000 		.4byte	0
+ 760 0021 00000000 		.4byte	.Ldebug_line0
+ 761 0025 02       		.uleb128 0x2
+ 762 0026 01       		.byte	0x1
+ 763 0027 06       		.byte	0x6
+ 764 0028 4C020000 		.4byte	.LASF0
+ 765 002c 02       		.uleb128 0x2
+ 766 002d 01       		.byte	0x1
+ 767 002e 08       		.byte	0x8
+ 768 002f F3000000 		.4byte	.LASF1
+ 769 0033 02       		.uleb128 0x2
+ 770 0034 02       		.byte	0x2
+ 771 0035 05       		.byte	0x5
+ 772 0036 18020000 		.4byte	.LASF2
+ 773 003a 02       		.uleb128 0x2
+ 774 003b 02       		.byte	0x2
+ 775 003c 07       		.byte	0x7
+ 776 003d 7D010000 		.4byte	.LASF3
+ 777 0041 03       		.uleb128 0x3
+ 778 0042 95000000 		.4byte	.LASF9
+ 779 0046 02       		.byte	0x2
+ARM GAS  C:\Users\seanj\AppData\Local\Temp\cckfTkBz.s 			page 17
+
+
+ 780 0047 3F       		.byte	0x3f
+ 781 0048 4C000000 		.4byte	0x4c
+ 782 004c 02       		.uleb128 0x2
+ 783 004d 04       		.byte	0x4
+ 784 004e 05       		.byte	0x5
+ 785 004f 2D020000 		.4byte	.LASF4
+ 786 0053 02       		.uleb128 0x2
+ 787 0054 04       		.byte	0x4
+ 788 0055 07       		.byte	0x7
+ 789 0056 46010000 		.4byte	.LASF5
+ 790 005a 02       		.uleb128 0x2
+ 791 005b 08       		.byte	0x8
+ 792 005c 05       		.byte	0x5
+ 793 005d F2010000 		.4byte	.LASF6
+ 794 0061 02       		.uleb128 0x2
+ 795 0062 08       		.byte	0x8
+ 796 0063 07       		.byte	0x7
+ 797 0064 B5010000 		.4byte	.LASF7
+ 798 0068 04       		.uleb128 0x4
+ 799 0069 04       		.byte	0x4
+ 800 006a 05       		.byte	0x5
+ 801 006b 696E7400 		.ascii	"int\000"
+ 802 006f 02       		.uleb128 0x2
+ 803 0070 04       		.byte	0x4
+ 804 0071 07       		.byte	0x7
+ 805 0072 A8010000 		.4byte	.LASF8
+ 806 0076 03       		.uleb128 0x3
+ 807 0077 D8000000 		.4byte	.LASF10
+ 808 007b 03       		.byte	0x3
+ 809 007c 2C       		.byte	0x2c
+ 810 007d 41000000 		.4byte	0x41
+ 811 0081 05       		.uleb128 0x5
+ 812 0082 22020000 		.4byte	.LASF11
+ 813 0086 04       		.byte	0x4
+ 814 0087 E401     		.2byte	0x1e4
+ 815 0089 2C000000 		.4byte	0x2c
+ 816 008d 02       		.uleb128 0x2
+ 817 008e 04       		.byte	0x4
+ 818 008f 04       		.byte	0x4
+ 819 0090 E0000000 		.4byte	.LASF12
+ 820 0094 02       		.uleb128 0x2
+ 821 0095 08       		.byte	0x8
+ 822 0096 04       		.byte	0x4
+ 823 0097 76010000 		.4byte	.LASF13
+ 824 009b 02       		.uleb128 0x2
+ 825 009c 01       		.byte	0x1
+ 826 009d 08       		.byte	0x8
+ 827 009e 07020000 		.4byte	.LASF14
+ 828 00a2 02       		.uleb128 0x2
+ 829 00a3 08       		.byte	0x8
+ 830 00a4 04       		.byte	0x4
+ 831 00a5 D3010000 		.4byte	.LASF15
+ 832 00a9 02       		.uleb128 0x2
+ 833 00aa 04       		.byte	0x4
+ 834 00ab 07       		.byte	0x7
+ 835 00ac E9010000 		.4byte	.LASF16
+ 836 00b0 06       		.uleb128 0x6
+ARM GAS  C:\Users\seanj\AppData\Local\Temp\cckfTkBz.s 			page 18
+
+
+ 837 00b1 E20B     		.2byte	0xbe2
+ 838 00b3 05       		.byte	0x5
+ 839 00b4 0C       		.byte	0xc
+ 840 00b5 DE000000 		.4byte	0xde
+ 841 00b9 07       		.uleb128 0x7
+ 842 00ba 12020000 		.4byte	.LASF17
+ 843 00be 05       		.byte	0x5
+ 844 00bf 0D       		.byte	0xd
+ 845 00c0 DE000000 		.4byte	0xde
+ 846 00c4 00       		.byte	0
+ 847 00c5 07       		.uleb128 0x7
+ 848 00c6 58010000 		.4byte	.LASF18
+ 849 00ca 05       		.byte	0x5
+ 850 00cb 0E       		.byte	0xe
+ 851 00cc DE000000 		.4byte	0xde
+ 852 00d0 01       		.byte	0x1
+ 853 00d1 07       		.uleb128 0x7
+ 854 00d2 BA000000 		.4byte	.LASF19
+ 855 00d6 05       		.byte	0x5
+ 856 00d7 0F       		.byte	0xf
+ 857 00d8 F9000000 		.4byte	0xf9
+ 858 00dc 02       		.byte	0x2
+ 859 00dd 00       		.byte	0
+ 860 00de 08       		.uleb128 0x8
+ 861 00df 81000000 		.4byte	0x81
+ 862 00e3 09       		.uleb128 0x9
+ 863 00e4 DE000000 		.4byte	0xde
+ 864 00e8 F9000000 		.4byte	0xf9
+ 865 00ec 0A       		.uleb128 0xa
+ 866 00ed A9000000 		.4byte	0xa9
+ 867 00f1 5E       		.byte	0x5e
+ 868 00f2 0A       		.uleb128 0xa
+ 869 00f3 A9000000 		.4byte	0xa9
+ 870 00f7 1F       		.byte	0x1f
+ 871 00f8 00       		.byte	0
+ 872 00f9 08       		.uleb128 0x8
+ 873 00fa E3000000 		.4byte	0xe3
+ 874 00fe 03       		.uleb128 0x3
+ 875 00ff 60020000 		.4byte	.LASF20
+ 876 0103 05       		.byte	0x5
+ 877 0104 10       		.byte	0x10
+ 878 0105 B0000000 		.4byte	0xb0
+ 879 0109 06       		.uleb128 0x6
+ 880 010a 1C04     		.2byte	0x41c
+ 881 010c 06       		.byte	0x6
+ 882 010d 2E       		.byte	0x2e
+ 883 010e 97010000 		.4byte	0x197
+ 884 0112 07       		.uleb128 0x7
+ 885 0113 CE000000 		.4byte	.LASF21
+ 886 0117 06       		.byte	0x6
+ 887 0118 2F       		.byte	0x2f
+ 888 0119 81000000 		.4byte	0x81
+ 889 011d 00       		.byte	0
+ 890 011e 07       		.uleb128 0x7
+ 891 011f DF010000 		.4byte	.LASF22
+ 892 0123 06       		.byte	0x6
+ 893 0124 30       		.byte	0x30
+ARM GAS  C:\Users\seanj\AppData\Local\Temp\cckfTkBz.s 			page 19
+
+
+ 894 0125 AB010000 		.4byte	0x1ab
+ 895 0129 04       		.byte	0x4
+ 896 012a 07       		.uleb128 0x7
+ 897 012b C5000000 		.4byte	.LASF23
+ 898 012f 06       		.byte	0x6
+ 899 0130 31       		.byte	0x31
+ 900 0131 B6010000 		.4byte	0x1b6
+ 901 0135 08       		.byte	0x8
+ 902 0136 07       		.uleb128 0x7
+ 903 0137 6C010000 		.4byte	.LASF24
+ 904 013b 06       		.byte	0x6
+ 905 013c 32       		.byte	0x32
+ 906 013d CB010000 		.4byte	0x1cb
+ 907 0141 0C       		.byte	0xc
+ 908 0142 07       		.uleb128 0x7
+ 909 0143 96010000 		.4byte	.LASF25
+ 910 0147 06       		.byte	0x6
+ 911 0148 33       		.byte	0x33
+ 912 0149 81000000 		.4byte	0x81
+ 913 014d 10       		.byte	0x10
+ 914 014e 07       		.uleb128 0x7
+ 915 014f 90010000 		.4byte	.LASF26
+ 916 0153 06       		.byte	0x6
+ 917 0154 34       		.byte	0x34
+ 918 0155 81000000 		.4byte	0x81
+ 919 0159 11       		.byte	0x11
+ 920 015a 07       		.uleb128 0x7
+ 921 015b 58020000 		.4byte	.LASF27
+ 922 015f 06       		.byte	0x6
+ 923 0160 35       		.byte	0x35
+ 924 0161 81000000 		.4byte	0x81
+ 925 0165 12       		.byte	0x12
+ 926 0166 07       		.uleb128 0x7
+ 927 0167 41010000 		.4byte	.LASF28
+ 928 016b 06       		.byte	0x6
+ 929 016c 36       		.byte	0x36
+ 930 016d D1010000 		.4byte	0x1d1
+ 931 0171 14       		.byte	0x14
+ 932 0172 07       		.uleb128 0x7
+ 933 0173 00000000 		.4byte	.LASF29
+ 934 0177 06       		.byte	0x6
+ 935 0178 37       		.byte	0x37
+ 936 0179 81000000 		.4byte	0x81
+ 937 017d 18       		.byte	0x18
+ 938 017e 07       		.uleb128 0x7
+ 939 017f 9F000000 		.4byte	.LASF30
+ 940 0183 06       		.byte	0x6
+ 941 0184 38       		.byte	0x38
+ 942 0185 81000000 		.4byte	0x81
+ 943 0189 19       		.byte	0x19
+ 944 018a 07       		.uleb128 0x7
+ 945 018b 28020000 		.4byte	.LASF31
+ 946 018f 06       		.byte	0x6
+ 947 0190 39       		.byte	0x39
+ 948 0191 DC010000 		.4byte	0x1dc
+ 949 0195 1A       		.byte	0x1a
+ 950 0196 00       		.byte	0
+ARM GAS  C:\Users\seanj\AppData\Local\Temp\cckfTkBz.s 			page 20
+
+
+ 951 0197 0B       		.uleb128 0xb
+ 952 0198 81000000 		.4byte	0x81
+ 953 019c AB010000 		.4byte	0x1ab
+ 954 01a0 0C       		.uleb128 0xc
+ 955 01a1 81000000 		.4byte	0x81
+ 956 01a5 0C       		.uleb128 0xc
+ 957 01a6 81000000 		.4byte	0x81
+ 958 01aa 00       		.byte	0
+ 959 01ab 0D       		.uleb128 0xd
+ 960 01ac 04       		.byte	0x4
+ 961 01ad 97010000 		.4byte	0x197
+ 962 01b1 0E       		.uleb128 0xe
+ 963 01b2 81000000 		.4byte	0x81
+ 964 01b6 0D       		.uleb128 0xd
+ 965 01b7 04       		.byte	0x4
+ 966 01b8 B1010000 		.4byte	0x1b1
+ 967 01bc 0B       		.uleb128 0xb
+ 968 01bd 81000000 		.4byte	0x81
+ 969 01c1 CB010000 		.4byte	0x1cb
+ 970 01c5 0C       		.uleb128 0xc
+ 971 01c6 81000000 		.4byte	0x81
+ 972 01ca 00       		.byte	0
+ 973 01cb 0D       		.uleb128 0xd
+ 974 01cc 04       		.byte	0x4
+ 975 01cd BC010000 		.4byte	0x1bc
+ 976 01d1 0D       		.uleb128 0xd
+ 977 01d2 04       		.byte	0x4
+ 978 01d3 D7010000 		.4byte	0x1d7
+ 979 01d7 08       		.uleb128 0x8
+ 980 01d8 FE000000 		.4byte	0xfe
+ 981 01dc 09       		.uleb128 0x9
+ 982 01dd 81000000 		.4byte	0x81
+ 983 01e1 ED010000 		.4byte	0x1ed
+ 984 01e5 0F       		.uleb128 0xf
+ 985 01e6 A9000000 		.4byte	0xa9
+ 986 01ea FF03     		.2byte	0x3ff
+ 987 01ec 00       		.byte	0
+ 988 01ed 03       		.uleb128 0x3
+ 989 01ee CC010000 		.4byte	.LASF32
+ 990 01f2 06       		.byte	0x6
+ 991 01f3 3A       		.byte	0x3a
+ 992 01f4 09010000 		.4byte	0x109
+ 993 01f8 10       		.uleb128 0x10
+ 994 01f9 A3010000 		.4byte	.LASF44
+ 995 01fd 01       		.byte	0x1
+ 996 01fe 10       		.byte	0x10
+ 997 01ff 68000000 		.4byte	0x68
+ 998 0203 00000000 		.4byte	.LFB63
+ 999 0207 16000000 		.4byte	.LFE63-.LFB63
+ 1000 020b 01       		.uleb128 0x1
+ 1001 020c 9C       		.byte	0x9c
+ 1002 020d 11       		.uleb128 0x11
+ 1003 020e E6000000 		.4byte	.LASF35
+ 1004 0212 01       		.byte	0x1
+ 1005 0213 20       		.byte	0x20
+ 1006 0214 00000000 		.4byte	.LFB64
+ 1007 0218 D0010000 		.4byte	.LFE64-.LFB64
+ARM GAS  C:\Users\seanj\AppData\Local\Temp\cckfTkBz.s 			page 21
+
+
+ 1008 021c 01       		.uleb128 0x1
+ 1009 021d 9C       		.byte	0x9c
+ 1010 021e 4E020000 		.4byte	0x24e
+ 1011 0222 12       		.uleb128 0x12
+ 1012 0223 9E010000 		.4byte	.LASF33
+ 1013 0227 01       		.byte	0x1
+ 1014 0228 22       		.byte	0x22
+ 1015 0229 ED010000 		.4byte	0x1ed
+ 1016 022d 03       		.uleb128 0x3
+ 1017 022e 91       		.byte	0x91
+ 1018 022f D477     		.sleb128 -1068
+ 1019 0231 12       		.uleb128 0x12
+ 1020 0232 CE000000 		.4byte	.LASF21
+ 1021 0236 01       		.byte	0x1
+ 1022 0237 23       		.byte	0x23
+ 1023 0238 81000000 		.4byte	0x81
+ 1024 023c 02       		.uleb128 0x2
+ 1025 023d 91       		.byte	0x91
+ 1026 023e 77       		.sleb128 -9
+ 1027 023f 12       		.uleb128 0x12
+ 1028 0240 0C020000 		.4byte	.LASF34
+ 1029 0244 01       		.byte	0x1
+ 1030 0245 26       		.byte	0x26
+ 1031 0246 68000000 		.4byte	0x68
+ 1032 024a 02       		.uleb128 0x2
+ 1033 024b 91       		.byte	0x91
+ 1034 024c 70       		.sleb128 -16
+ 1035 024d 00       		.byte	0
+ 1036 024e 11       		.uleb128 0x11
+ 1037 024f B1000000 		.4byte	.LASF36
+ 1038 0253 01       		.byte	0x1
+ 1039 0254 51       		.byte	0x51
+ 1040 0255 00000000 		.4byte	.LFB65
+ 1041 0259 50000000 		.4byte	.LFE65-.LFB65
+ 1042 025d 01       		.uleb128 0x1
+ 1043 025e 9C       		.byte	0x9c
+ 1044 025f 81020000 		.4byte	0x281
+ 1045 0263 12       		.uleb128 0x12
+ 1046 0264 9E010000 		.4byte	.LASF33
+ 1047 0268 01       		.byte	0x1
+ 1048 0269 53       		.byte	0x53
+ 1049 026a ED010000 		.4byte	0x1ed
+ 1050 026e 03       		.uleb128 0x3
+ 1051 026f 91       		.byte	0x91
+ 1052 0270 D877     		.sleb128 -1064
+ 1053 0272 12       		.uleb128 0x12
+ 1054 0273 CE000000 		.4byte	.LASF21
+ 1055 0277 01       		.byte	0x1
+ 1056 0278 54       		.byte	0x54
+ 1057 0279 81000000 		.4byte	0x81
+ 1058 027d 02       		.uleb128 0x2
+ 1059 027e 91       		.byte	0x91
+ 1060 027f 77       		.sleb128 -9
+ 1061 0280 00       		.byte	0
+ 1062 0281 11       		.uleb128 0x11
+ 1063 0282 41020000 		.4byte	.LASF37
+ 1064 0286 01       		.byte	0x1
+ARM GAS  C:\Users\seanj\AppData\Local\Temp\cckfTkBz.s 			page 22
+
+
+ 1065 0287 5D       		.byte	0x5d
+ 1066 0288 00000000 		.4byte	.LFB66
+ 1067 028c 6C000000 		.4byte	.LFE66-.LFB66
+ 1068 0290 01       		.uleb128 0x1
+ 1069 0291 9C       		.byte	0x9c
+ 1070 0292 E1020000 		.4byte	0x2e1
+ 1071 0296 12       		.uleb128 0x12
+ 1072 0297 9E010000 		.4byte	.LASF33
+ 1073 029b 01       		.byte	0x1
+ 1074 029c 5F       		.byte	0x5f
+ 1075 029d ED010000 		.4byte	0x1ed
+ 1076 02a1 03       		.uleb128 0x3
+ 1077 02a2 91       		.byte	0x91
+ 1078 02a3 D077     		.sleb128 -1072
+ 1079 02a5 12       		.uleb128 0x12
+ 1080 02a6 CE000000 		.4byte	.LASF21
+ 1081 02aa 01       		.byte	0x1
+ 1082 02ab 60       		.byte	0x60
+ 1083 02ac 81000000 		.4byte	0x81
+ 1084 02b0 02       		.uleb128 0x2
+ 1085 02b1 91       		.byte	0x91
+ 1086 02b2 77       		.sleb128 -9
+ 1087 02b3 12       		.uleb128 0x12
+ 1088 02b4 37010000 		.4byte	.LASF38
+ 1089 02b8 01       		.byte	0x1
+ 1090 02b9 63       		.byte	0x63
+ 1091 02ba 68000000 		.4byte	0x68
+ 1092 02be 02       		.uleb128 0x2
+ 1093 02bf 91       		.byte	0x91
+ 1094 02c0 70       		.sleb128 -16
+ 1095 02c1 12       		.uleb128 0x12
+ 1096 02c2 36020000 		.4byte	.LASF39
+ 1097 02c6 01       		.byte	0x1
+ 1098 02c7 63       		.byte	0x63
+ 1099 02c8 68000000 		.4byte	0x68
+ 1100 02cc 02       		.uleb128 0x2
+ 1101 02cd 91       		.byte	0x91
+ 1102 02ce 6C       		.sleb128 -20
+ 1103 02cf 12       		.uleb128 0x12
+ 1104 02d0 A8000000 		.4byte	.LASF40
+ 1105 02d4 01       		.byte	0x1
+ 1106 02d5 64       		.byte	0x64
+ 1107 02d6 E1020000 		.4byte	0x2e1
+ 1108 02da 05       		.uleb128 0x5
+ 1109 02db 03       		.byte	0x3
+ 1110 02dc 00000000 		.4byte	MIT_bits.5796
+ 1111 02e0 00       		.byte	0
+ 1112 02e1 09       		.uleb128 0x9
+ 1113 02e2 2C000000 		.4byte	0x2c
+ 1114 02e6 F2020000 		.4byte	0x2f2
+ 1115 02ea 0F       		.uleb128 0xf
+ 1116 02eb A9000000 		.4byte	0xa9
+ 1117 02ef 2F01     		.2byte	0x12f
+ 1118 02f1 00       		.byte	0
+ 1119 02f2 13       		.uleb128 0x13
+ 1120 02f3 5F010000 		.4byte	.LASF45
+ 1121 02f7 07       		.byte	0x7
+ARM GAS  C:\Users\seanj\AppData\Local\Temp\cckfTkBz.s 			page 23
+
+
+ 1122 02f8 1207     		.2byte	0x712
+ 1123 02fa FE020000 		.4byte	0x2fe
+ 1124 02fe 14       		.uleb128 0x14
+ 1125 02ff 76000000 		.4byte	0x76
+ 1126 0303 00       		.byte	0
+ 1127              		.section	.debug_abbrev,"",%progbits
+ 1128              	.Ldebug_abbrev0:
+ 1129 0000 01       		.uleb128 0x1
+ 1130 0001 11       		.uleb128 0x11
+ 1131 0002 01       		.byte	0x1
+ 1132 0003 25       		.uleb128 0x25
+ 1133 0004 0E       		.uleb128 0xe
+ 1134 0005 13       		.uleb128 0x13
+ 1135 0006 0B       		.uleb128 0xb
+ 1136 0007 03       		.uleb128 0x3
+ 1137 0008 0E       		.uleb128 0xe
+ 1138 0009 1B       		.uleb128 0x1b
+ 1139 000a 0E       		.uleb128 0xe
+ 1140 000b 55       		.uleb128 0x55
+ 1141 000c 17       		.uleb128 0x17
+ 1142 000d 11       		.uleb128 0x11
+ 1143 000e 01       		.uleb128 0x1
+ 1144 000f 10       		.uleb128 0x10
+ 1145 0010 17       		.uleb128 0x17
+ 1146 0011 00       		.byte	0
+ 1147 0012 00       		.byte	0
+ 1148 0013 02       		.uleb128 0x2
+ 1149 0014 24       		.uleb128 0x24
+ 1150 0015 00       		.byte	0
+ 1151 0016 0B       		.uleb128 0xb
+ 1152 0017 0B       		.uleb128 0xb
+ 1153 0018 3E       		.uleb128 0x3e
+ 1154 0019 0B       		.uleb128 0xb
+ 1155 001a 03       		.uleb128 0x3
+ 1156 001b 0E       		.uleb128 0xe
+ 1157 001c 00       		.byte	0
+ 1158 001d 00       		.byte	0
+ 1159 001e 03       		.uleb128 0x3
+ 1160 001f 16       		.uleb128 0x16
+ 1161 0020 00       		.byte	0
+ 1162 0021 03       		.uleb128 0x3
+ 1163 0022 0E       		.uleb128 0xe
+ 1164 0023 3A       		.uleb128 0x3a
+ 1165 0024 0B       		.uleb128 0xb
+ 1166 0025 3B       		.uleb128 0x3b
+ 1167 0026 0B       		.uleb128 0xb
+ 1168 0027 49       		.uleb128 0x49
+ 1169 0028 13       		.uleb128 0x13
+ 1170 0029 00       		.byte	0
+ 1171 002a 00       		.byte	0
+ 1172 002b 04       		.uleb128 0x4
+ 1173 002c 24       		.uleb128 0x24
+ 1174 002d 00       		.byte	0
+ 1175 002e 0B       		.uleb128 0xb
+ 1176 002f 0B       		.uleb128 0xb
+ 1177 0030 3E       		.uleb128 0x3e
+ 1178 0031 0B       		.uleb128 0xb
+ARM GAS  C:\Users\seanj\AppData\Local\Temp\cckfTkBz.s 			page 24
+
+
+ 1179 0032 03       		.uleb128 0x3
+ 1180 0033 08       		.uleb128 0x8
+ 1181 0034 00       		.byte	0
+ 1182 0035 00       		.byte	0
+ 1183 0036 05       		.uleb128 0x5
+ 1184 0037 16       		.uleb128 0x16
+ 1185 0038 00       		.byte	0
+ 1186 0039 03       		.uleb128 0x3
+ 1187 003a 0E       		.uleb128 0xe
+ 1188 003b 3A       		.uleb128 0x3a
+ 1189 003c 0B       		.uleb128 0xb
+ 1190 003d 3B       		.uleb128 0x3b
+ 1191 003e 05       		.uleb128 0x5
+ 1192 003f 49       		.uleb128 0x49
+ 1193 0040 13       		.uleb128 0x13
+ 1194 0041 00       		.byte	0
+ 1195 0042 00       		.byte	0
+ 1196 0043 06       		.uleb128 0x6
+ 1197 0044 13       		.uleb128 0x13
+ 1198 0045 01       		.byte	0x1
+ 1199 0046 0B       		.uleb128 0xb
+ 1200 0047 05       		.uleb128 0x5
+ 1201 0048 3A       		.uleb128 0x3a
+ 1202 0049 0B       		.uleb128 0xb
+ 1203 004a 3B       		.uleb128 0x3b
+ 1204 004b 0B       		.uleb128 0xb
+ 1205 004c 01       		.uleb128 0x1
+ 1206 004d 13       		.uleb128 0x13
+ 1207 004e 00       		.byte	0
+ 1208 004f 00       		.byte	0
+ 1209 0050 07       		.uleb128 0x7
+ 1210 0051 0D       		.uleb128 0xd
+ 1211 0052 00       		.byte	0
+ 1212 0053 03       		.uleb128 0x3
+ 1213 0054 0E       		.uleb128 0xe
+ 1214 0055 3A       		.uleb128 0x3a
+ 1215 0056 0B       		.uleb128 0xb
+ 1216 0057 3B       		.uleb128 0x3b
+ 1217 0058 0B       		.uleb128 0xb
+ 1218 0059 49       		.uleb128 0x49
+ 1219 005a 13       		.uleb128 0x13
+ 1220 005b 38       		.uleb128 0x38
+ 1221 005c 0B       		.uleb128 0xb
+ 1222 005d 00       		.byte	0
+ 1223 005e 00       		.byte	0
+ 1224 005f 08       		.uleb128 0x8
+ 1225 0060 26       		.uleb128 0x26
+ 1226 0061 00       		.byte	0
+ 1227 0062 49       		.uleb128 0x49
+ 1228 0063 13       		.uleb128 0x13
+ 1229 0064 00       		.byte	0
+ 1230 0065 00       		.byte	0
+ 1231 0066 09       		.uleb128 0x9
+ 1232 0067 01       		.uleb128 0x1
+ 1233 0068 01       		.byte	0x1
+ 1234 0069 49       		.uleb128 0x49
+ 1235 006a 13       		.uleb128 0x13
+ARM GAS  C:\Users\seanj\AppData\Local\Temp\cckfTkBz.s 			page 25
+
+
+ 1236 006b 01       		.uleb128 0x1
+ 1237 006c 13       		.uleb128 0x13
+ 1238 006d 00       		.byte	0
+ 1239 006e 00       		.byte	0
+ 1240 006f 0A       		.uleb128 0xa
+ 1241 0070 21       		.uleb128 0x21
+ 1242 0071 00       		.byte	0
+ 1243 0072 49       		.uleb128 0x49
+ 1244 0073 13       		.uleb128 0x13
+ 1245 0074 2F       		.uleb128 0x2f
+ 1246 0075 0B       		.uleb128 0xb
+ 1247 0076 00       		.byte	0
+ 1248 0077 00       		.byte	0
+ 1249 0078 0B       		.uleb128 0xb
+ 1250 0079 15       		.uleb128 0x15
+ 1251 007a 01       		.byte	0x1
+ 1252 007b 27       		.uleb128 0x27
+ 1253 007c 19       		.uleb128 0x19
+ 1254 007d 49       		.uleb128 0x49
+ 1255 007e 13       		.uleb128 0x13
+ 1256 007f 01       		.uleb128 0x1
+ 1257 0080 13       		.uleb128 0x13
+ 1258 0081 00       		.byte	0
+ 1259 0082 00       		.byte	0
+ 1260 0083 0C       		.uleb128 0xc
+ 1261 0084 05       		.uleb128 0x5
+ 1262 0085 00       		.byte	0
+ 1263 0086 49       		.uleb128 0x49
+ 1264 0087 13       		.uleb128 0x13
+ 1265 0088 00       		.byte	0
+ 1266 0089 00       		.byte	0
+ 1267 008a 0D       		.uleb128 0xd
+ 1268 008b 0F       		.uleb128 0xf
+ 1269 008c 00       		.byte	0
+ 1270 008d 0B       		.uleb128 0xb
+ 1271 008e 0B       		.uleb128 0xb
+ 1272 008f 49       		.uleb128 0x49
+ 1273 0090 13       		.uleb128 0x13
+ 1274 0091 00       		.byte	0
+ 1275 0092 00       		.byte	0
+ 1276 0093 0E       		.uleb128 0xe
+ 1277 0094 15       		.uleb128 0x15
+ 1278 0095 00       		.byte	0
+ 1279 0096 27       		.uleb128 0x27
+ 1280 0097 19       		.uleb128 0x19
+ 1281 0098 49       		.uleb128 0x49
+ 1282 0099 13       		.uleb128 0x13
+ 1283 009a 00       		.byte	0
+ 1284 009b 00       		.byte	0
+ 1285 009c 0F       		.uleb128 0xf
+ 1286 009d 21       		.uleb128 0x21
+ 1287 009e 00       		.byte	0
+ 1288 009f 49       		.uleb128 0x49
+ 1289 00a0 13       		.uleb128 0x13
+ 1290 00a1 2F       		.uleb128 0x2f
+ 1291 00a2 05       		.uleb128 0x5
+ 1292 00a3 00       		.byte	0
+ARM GAS  C:\Users\seanj\AppData\Local\Temp\cckfTkBz.s 			page 26
+
+
+ 1293 00a4 00       		.byte	0
+ 1294 00a5 10       		.uleb128 0x10
+ 1295 00a6 2E       		.uleb128 0x2e
+ 1296 00a7 00       		.byte	0
+ 1297 00a8 3F       		.uleb128 0x3f
+ 1298 00a9 19       		.uleb128 0x19
+ 1299 00aa 03       		.uleb128 0x3
+ 1300 00ab 0E       		.uleb128 0xe
+ 1301 00ac 3A       		.uleb128 0x3a
+ 1302 00ad 0B       		.uleb128 0xb
+ 1303 00ae 3B       		.uleb128 0x3b
+ 1304 00af 0B       		.uleb128 0xb
+ 1305 00b0 27       		.uleb128 0x27
+ 1306 00b1 19       		.uleb128 0x19
+ 1307 00b2 49       		.uleb128 0x49
+ 1308 00b3 13       		.uleb128 0x13
+ 1309 00b4 11       		.uleb128 0x11
+ 1310 00b5 01       		.uleb128 0x1
+ 1311 00b6 12       		.uleb128 0x12
+ 1312 00b7 06       		.uleb128 0x6
+ 1313 00b8 40       		.uleb128 0x40
+ 1314 00b9 18       		.uleb128 0x18
+ 1315 00ba 9642     		.uleb128 0x2116
+ 1316 00bc 19       		.uleb128 0x19
+ 1317 00bd 00       		.byte	0
+ 1318 00be 00       		.byte	0
+ 1319 00bf 11       		.uleb128 0x11
+ 1320 00c0 2E       		.uleb128 0x2e
+ 1321 00c1 01       		.byte	0x1
+ 1322 00c2 3F       		.uleb128 0x3f
+ 1323 00c3 19       		.uleb128 0x19
+ 1324 00c4 03       		.uleb128 0x3
+ 1325 00c5 0E       		.uleb128 0xe
+ 1326 00c6 3A       		.uleb128 0x3a
+ 1327 00c7 0B       		.uleb128 0xb
+ 1328 00c8 3B       		.uleb128 0x3b
+ 1329 00c9 0B       		.uleb128 0xb
+ 1330 00ca 27       		.uleb128 0x27
+ 1331 00cb 19       		.uleb128 0x19
+ 1332 00cc 11       		.uleb128 0x11
+ 1333 00cd 01       		.uleb128 0x1
+ 1334 00ce 12       		.uleb128 0x12
+ 1335 00cf 06       		.uleb128 0x6
+ 1336 00d0 40       		.uleb128 0x40
+ 1337 00d1 18       		.uleb128 0x18
+ 1338 00d2 9642     		.uleb128 0x2116
+ 1339 00d4 19       		.uleb128 0x19
+ 1340 00d5 01       		.uleb128 0x1
+ 1341 00d6 13       		.uleb128 0x13
+ 1342 00d7 00       		.byte	0
+ 1343 00d8 00       		.byte	0
+ 1344 00d9 12       		.uleb128 0x12
+ 1345 00da 34       		.uleb128 0x34
+ 1346 00db 00       		.byte	0
+ 1347 00dc 03       		.uleb128 0x3
+ 1348 00dd 0E       		.uleb128 0xe
+ 1349 00de 3A       		.uleb128 0x3a
+ARM GAS  C:\Users\seanj\AppData\Local\Temp\cckfTkBz.s 			page 27
+
+
+ 1350 00df 0B       		.uleb128 0xb
+ 1351 00e0 3B       		.uleb128 0x3b
+ 1352 00e1 0B       		.uleb128 0xb
+ 1353 00e2 49       		.uleb128 0x49
+ 1354 00e3 13       		.uleb128 0x13
+ 1355 00e4 02       		.uleb128 0x2
+ 1356 00e5 18       		.uleb128 0x18
+ 1357 00e6 00       		.byte	0
+ 1358 00e7 00       		.byte	0
+ 1359 00e8 13       		.uleb128 0x13
+ 1360 00e9 34       		.uleb128 0x34
+ 1361 00ea 00       		.byte	0
+ 1362 00eb 03       		.uleb128 0x3
+ 1363 00ec 0E       		.uleb128 0xe
+ 1364 00ed 3A       		.uleb128 0x3a
+ 1365 00ee 0B       		.uleb128 0xb
+ 1366 00ef 3B       		.uleb128 0x3b
+ 1367 00f0 05       		.uleb128 0x5
+ 1368 00f1 49       		.uleb128 0x49
+ 1369 00f2 13       		.uleb128 0x13
+ 1370 00f3 3F       		.uleb128 0x3f
+ 1371 00f4 19       		.uleb128 0x19
+ 1372 00f5 3C       		.uleb128 0x3c
+ 1373 00f6 19       		.uleb128 0x19
+ 1374 00f7 00       		.byte	0
+ 1375 00f8 00       		.byte	0
+ 1376 00f9 14       		.uleb128 0x14
+ 1377 00fa 35       		.uleb128 0x35
+ 1378 00fb 00       		.byte	0
+ 1379 00fc 49       		.uleb128 0x49
+ 1380 00fd 13       		.uleb128 0x13
+ 1381 00fe 00       		.byte	0
+ 1382 00ff 00       		.byte	0
+ 1383 0100 00       		.byte	0
+ 1384              		.section	.debug_aranges,"",%progbits
+ 1385 0000 34000000 		.4byte	0x34
+ 1386 0004 0200     		.2byte	0x2
+ 1387 0006 00000000 		.4byte	.Ldebug_info0
+ 1388 000a 04       		.byte	0x4
+ 1389 000b 00       		.byte	0
+ 1390 000c 0000     		.2byte	0
+ 1391 000e 0000     		.2byte	0
+ 1392 0010 00000000 		.4byte	.LFB63
+ 1393 0014 16000000 		.4byte	.LFE63-.LFB63
+ 1394 0018 00000000 		.4byte	.LFB64
+ 1395 001c D0010000 		.4byte	.LFE64-.LFB64
+ 1396 0020 00000000 		.4byte	.LFB65
+ 1397 0024 50000000 		.4byte	.LFE65-.LFB65
+ 1398 0028 00000000 		.4byte	.LFB66
+ 1399 002c 6C000000 		.4byte	.LFE66-.LFB66
+ 1400 0030 00000000 		.4byte	0
+ 1401 0034 00000000 		.4byte	0
+ 1402              		.section	.debug_ranges,"",%progbits
+ 1403              	.Ldebug_ranges0:
+ 1404 0000 00000000 		.4byte	.LFB63
+ 1405 0004 16000000 		.4byte	.LFE63
+ 1406 0008 00000000 		.4byte	.LFB64
+ARM GAS  C:\Users\seanj\AppData\Local\Temp\cckfTkBz.s 			page 28
+
+
+ 1407 000c D0010000 		.4byte	.LFE64
+ 1408 0010 00000000 		.4byte	.LFB65
+ 1409 0014 50000000 		.4byte	.LFE65
+ 1410 0018 00000000 		.4byte	.LFB66
+ 1411 001c 6C000000 		.4byte	.LFE66
+ 1412 0020 00000000 		.4byte	0
+ 1413 0024 00000000 		.4byte	0
+ 1414              		.section	.debug_line,"",%progbits
+ 1415              	.Ldebug_line0:
+ 1416 0000 72020000 		.section	.debug_str,"MS",%progbits,1
+ 1416      02006001 
+ 1416      00000201 
+ 1416      FB0E0D00 
+ 1416      01010101 
+ 1417              	.LASF29:
+ 1418 0000 626D4D6F 		.ascii	"bmMode\000"
+ 1418      646500
+ 1419              	.LASF41:
+ 1420 0007 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 1420      43313120 
+ 1420      352E342E 
+ 1420      31203230 
+ 1420      31363036 
+ 1421 003a 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m3 -mthumb -g -O"
+ 1421      20726576 
+ 1421      6973696F 
+ 1421      6E203233 
+ 1421      37373135 
+ 1422 006d 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 1422      66756E63 
+ 1422      74696F6E 
+ 1422      2D736563 
+ 1422      74696F6E 
+ 1423              	.LASF9:
+ 1424 0095 5F5F696E 		.ascii	"__int32_t\000"
+ 1424      7433325F 
+ 1424      7400
+ 1425              	.LASF30:
+ 1426 009f 74657874 		.ascii	"textMode\000"
+ 1426      4D6F6465 
+ 1426      00
+ 1427              	.LASF40:
+ 1428 00a8 4D49545F 		.ascii	"MIT_bits\000"
+ 1428      62697473 
+ 1428      00
+ 1429              	.LASF36:
+ 1430 00b1 44656D6F 		.ascii	"DemoText\000"
+ 1430      54657874 
+ 1430      00
+ 1431              	.LASF19:
+ 1432 00ba 63686172 		.ascii	"characters\000"
+ 1432      61637465 
+ 1432      727300
+ 1433              	.LASF23:
+ 1434 00c5 53656E64 		.ascii	"SendStop\000"
+ 1434      53746F70 
+ 1434      00
+ARM GAS  C:\Users\seanj\AppData\Local\Temp\cckfTkBz.s 			page 29
+
+
+ 1435              	.LASF21:
+ 1436 00ce 736C6176 		.ascii	"slaveAddr\000"
+ 1436      65416464 
+ 1436      7200
+ 1437              	.LASF10:
+ 1438 00d8 696E7433 		.ascii	"int32_t\000"
+ 1438      325F7400 
+ 1439              	.LASF12:
+ 1440 00e0 666C6F61 		.ascii	"float\000"
+ 1440      7400
+ 1441              	.LASF35:
+ 1442 00e6 44656D6F 		.ascii	"DemoGraphics\000"
+ 1442      47726170 
+ 1442      68696373 
+ 1442      00
+ 1443              	.LASF1:
+ 1444 00f3 756E7369 		.ascii	"unsigned char\000"
+ 1444      676E6564 
+ 1444      20636861 
+ 1444      7200
+ 1445              	.LASF43:
+ 1446 0101 433A5C55 		.ascii	"C:\\Users\\seanj\\Documents\\RLE\\kent\\OLED\\OLED_"
+ 1446      73657273 
+ 1446      5C736561 
+ 1446      6E6A5C44 
+ 1446      6F63756D 
+ 1447 012d 4932432E 		.ascii	"I2C.cydsn\000"
+ 1447      63796473 
+ 1447      6E00
+ 1448              	.LASF38:
+ 1449 0137 4D49545F 		.ascii	"MIT_width\000"
+ 1449      77696474 
+ 1449      6800
+ 1450              	.LASF28:
+ 1451 0141 666F6E74 		.ascii	"font\000"
+ 1451      00
+ 1452              	.LASF5:
+ 1453 0146 6C6F6E67 		.ascii	"long unsigned int\000"
+ 1453      20756E73 
+ 1453      69676E65 
+ 1453      6420696E 
+ 1453      7400
+ 1454              	.LASF18:
+ 1455 0158 68656967 		.ascii	"height\000"
+ 1455      687400
+ 1456              	.LASF45:
+ 1457 015f 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 1457      52784275 
+ 1457      66666572 
+ 1457      00
+ 1458              	.LASF24:
+ 1459 016c 57726974 		.ascii	"WriteByte\000"
+ 1459      65427974 
+ 1459      6500
+ 1460              	.LASF13:
+ 1461 0176 646F7562 		.ascii	"double\000"
+ 1461      6C6500
+ARM GAS  C:\Users\seanj\AppData\Local\Temp\cckfTkBz.s 			page 30
+
+
+ 1462              	.LASF3:
+ 1463 017d 73686F72 		.ascii	"short unsigned int\000"
+ 1463      7420756E 
+ 1463      7369676E 
+ 1463      65642069 
+ 1463      6E7400
+ 1464              	.LASF26:
+ 1465 0190 636F6C6F 		.ascii	"color\000"
+ 1465      7200
+ 1466              	.LASF25:
+ 1467 0196 626B436F 		.ascii	"bkColor\000"
+ 1467      6C6F7200 
+ 1468              	.LASF33:
+ 1469 019e 6F6C6564 		.ascii	"oled\000"
+ 1469      00
+ 1470              	.LASF44:
+ 1471 01a3 6D61696E 		.ascii	"main\000"
+ 1471      00
+ 1472              	.LASF8:
+ 1473 01a8 756E7369 		.ascii	"unsigned int\000"
+ 1473      676E6564 
+ 1473      20696E74 
+ 1473      00
+ 1474              	.LASF7:
+ 1475 01b5 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 1475      206C6F6E 
+ 1475      6720756E 
+ 1475      7369676E 
+ 1475      65642069 
+ 1476              	.LASF32:
+ 1477 01cc 6F6C6564 		.ascii	"oled_t\000"
+ 1477      5F7400
+ 1478              	.LASF15:
+ 1479 01d3 6C6F6E67 		.ascii	"long double\000"
+ 1479      20646F75 
+ 1479      626C6500 
+ 1480              	.LASF22:
+ 1481 01df 53656E64 		.ascii	"SendStart\000"
+ 1481      53746172 
+ 1481      7400
+ 1482              	.LASF16:
+ 1483 01e9 73697A65 		.ascii	"sizetype\000"
+ 1483      74797065 
+ 1483      00
+ 1484              	.LASF6:
+ 1485 01f2 6C6F6E67 		.ascii	"long long int\000"
+ 1485      206C6F6E 
+ 1485      6720696E 
+ 1485      7400
+ 1486              	.LASF42:
+ 1487 0200 6D61696E 		.ascii	"main.c\000"
+ 1487      2E6300
+ 1488              	.LASF14:
+ 1489 0207 63686172 		.ascii	"char\000"
+ 1489      00
+ 1490              	.LASF34:
+ 1491 020c 64656C61 		.ascii	"delay\000"
+ARM GAS  C:\Users\seanj\AppData\Local\Temp\cckfTkBz.s 			page 31
+
+
+ 1491      7900
+ 1492              	.LASF17:
+ 1493 0212 77696474 		.ascii	"width\000"
+ 1493      6800
+ 1494              	.LASF2:
+ 1495 0218 73686F72 		.ascii	"short int\000"
+ 1495      7420696E 
+ 1495      7400
+ 1496              	.LASF11:
+ 1497 0222 75696E74 		.ascii	"uint8\000"
+ 1497      3800
+ 1498              	.LASF31:
+ 1499 0228 4752414D 		.ascii	"GRAM\000"
+ 1499      00
+ 1500              	.LASF4:
+ 1501 022d 6C6F6E67 		.ascii	"long int\000"
+ 1501      20696E74 
+ 1501      00
+ 1502              	.LASF39:
+ 1503 0236 4D49545F 		.ascii	"MIT_height\000"
+ 1503      68656967 
+ 1503      687400
+ 1504              	.LASF37:
+ 1505 0241 44656D6F 		.ascii	"DemoBitmap\000"
+ 1505      4269746D 
+ 1505      617000
+ 1506              	.LASF0:
+ 1507 024c 7369676E 		.ascii	"signed char\000"
+ 1507      65642063 
+ 1507      68617200 
+ 1508              	.LASF27:
+ 1509 0258 70656E53 		.ascii	"penSize\000"
+ 1509      697A6500 
+ 1510              	.LASF20:
+ 1511 0260 666F6E74 		.ascii	"font_t\000"
+ 1511      5F7400
+ 1512              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

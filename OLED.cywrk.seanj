@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CyXmlSerializer>
+<!--This file is machine generated and read. It is not intended to be edited by hand.-->
+<!--Due to this, there is no schema for this file.-->
+<CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21 type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWrkspcCustomData" version="4">
+<CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997 type_name="CyDesigner.Common.Base.CyCustomData" version="2">
+<userData>
+<dataGuid v="1b906a0f-a7b6-4e4d-a428-82f98b53cb35">
+<CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35 type_name="CyDesigner.Common.ProjMgmt.GUI.CyExplorerWindow+CyExplorerWindowState" version="3" SelectedTab="Source">
+<TreeKeys>
+<v>Source</v>
+<v>Components</v>
+<v>Output</v>
+</TreeKeys>
+<TreeStates>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="OLED\OLED_I2C">
+<ExpandedNodeIds>
+<v>OLED</v>
+<v>OLED\OLED_I2C</v>
+<v>OLED\OLED_I2C\TopDesign</v>
+<v>OLED\OLED_I2C\OLED_I2C.cydwr</v>
+<v>OLED\OLED_I2C\OLED_I2C.cydwr\Pins</v>
+<v>OLED\OLED_I2C\OLED_I2C.cydwr\Analog</v>
+<v>OLED\OLED_I2C\OLED_I2C.cydwr\Clocks</v>
+<v>OLED\OLED_I2C\OLED_I2C.cydwr\Interrupts</v>
+<v>OLED\OLED_I2C\OLED_I2C.cydwr\DMA</v>
+<v>OLED\OLED_I2C\OLED_I2C.cydwr\System</v>
+<v>OLED\OLED_I2C\OLED_I2C.cydwr\Directives</v>
+<v>OLED\OLED_I2C\OLED_I2C.cydwr\Flash Security</v>
+<v>OLED\OLED_I2C\OLED_I2C.cydwr\EEPROM</v>
+<v>OLED\OLED_I2C\Header Files</v>
+<v>OLED\OLED_I2C\Header Files\cyapicallbacks.h</v>
+<v>OLED\OLED_I2C\Header Files\font.h</v>
+<v>OLED\OLED_I2C\Header Files\oled.h</v>
+<v>OLED\OLED_I2C\Source Files</v>
+<v>OLED\OLED_I2C\Source Files\font.c</v>
+<v>OLED\OLED_I2C\Source Files\main.c</v>
+<v>OLED\OLED_I2C\Source Files\oled.c</v>
+<v>OLED\OLED_I2C\Generated_Source</v>
+<v>OLED\OLED_I2C\Generated_Source\PSoC5</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>OLED</v>
+<v>OLED\OLED_I2C</v>
+<v>OLED\OLED_I2C\TopDesign</v>
+<v>OLED\OLED_I2C\OLED_I2C.cydwr</v>
+<v>OLED\OLED_I2C\OLED_I2C.cydwr\Pins</v>
+<v>OLED\OLED_I2C\OLED_I2C.cydwr\Analog</v>
+<v>OLED\OLED_I2C\OLED_I2C.cydwr\Clocks</v>
+<v>OLED\OLED_I2C\OLED_I2C.cydwr\Interrupts</v>
+<v>OLED\OLED_I2C\OLED_I2C.cydwr\DMA</v>
+<v>OLED\OLED_I2C\OLED_I2C.cydwr\System</v>
+<v>OLED\OLED_I2C\OLED_I2C.cydwr\Directives</v>
+<v>OLED\OLED_I2C\OLED_I2C.cydwr\Flash Security</v>
+<v>OLED\OLED_I2C\OLED_I2C.cydwr\EEPROM</v>
+<v>OLED\OLED_I2C\Header Files</v>
+<v>OLED\OLED_I2C\Header Files\cyapicallbacks.h</v>
+<v>OLED\OLED_I2C\Header Files\font.h</v>
+<v>OLED\OLED_I2C\Header Files\oled.h</v>
+<v>OLED\OLED_I2C\Source Files</v>
+<v>OLED\OLED_I2C\Source Files\font.c</v>
+<v>OLED\OLED_I2C\Source Files\main.c</v>
+<v>OLED\OLED_I2C\Source Files\oled.c</v>
+<v>OLED\OLED_I2C\Generated_Source</v>
+<v>OLED\OLED_I2C\Generated_Source\PSoC5</v>
+<v>OLED\OLED_I2C\Generated_Source\PSoC5\cy_boot</v>
+<v>OLED\OLED_I2C\Generated_Source\PSoC5\Em_EEPROM_Dynamic</v>
+<v>OLED\OLED_I2C\Generated_Source\PSoC5\I2C_OLED</v>
+<v>OLED\OLED_I2C\Generated_Source\PSoC5\LED</v>
+<v>OLED\OLED_I2C\Generated_Source\PSoC5\SCL_OLED</v>
+<v>OLED\OLED_I2C\Generated_Source\PSoC5\SDA_OLED</v>
+<v>OLED\OLED_I2C\Generated_Source\PSoC5\cycodeshareexport.ld</v>
+<v>OLED\OLED_I2C\Generated_Source\PSoC5\cycodeshareimport.ld</v>
+<v>OLED\OLED_I2C\Generated_Source\PSoC5\cycodeshareimport.scat</v>
+<v>OLED\OLED_I2C\Generated_Source\PSoC5\cydevice.h</v>
+<v>OLED\OLED_I2C\Generated_Source\PSoC5\cydevice_trm.h</v>
+<v>OLED\OLED_I2C\Generated_Source\PSoC5\cydevicegnu.inc</v>
+<v>OLED\OLED_I2C\Generated_Source\PSoC5\cydevicegnu_trm.inc</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="OLED\OLED_I2C">
+<ExpandedNodeIds>
+<v>OLED</v>
+<v>OLED\OLED_I2C\TopDesign\TopDesign.cysch</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>OLED</v>
+<v>OLED\OLED_I2C</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>OLED</v>
+<v>OLED\OLED_I2C</v>
+<v>OLED\OLED_I2C\CortexM3</v>
+<v>OLED\OLED_I2C\CortexM3\ARM_GCC_541</v>
+<v>OLED\OLED_I2C\CortexM3\ARM_GCC_541\Debug</v>
+<v>OLED\OLED_I2C\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
+<v>OLED\OLED_I2C\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
+<v>OLED\OLED_I2C\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>OLED\OLED_I2C\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>OLED\OLED_I2C\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
+<v>OLED\OLED_I2C\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>OLED\OLED_I2C\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>OLED\OLED_I2C\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>OLED\OLED_I2C\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>OLED\OLED_I2C\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>OLED\OLED_I2C\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
+<v>OLED\OLED_I2C\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>OLED\OLED_I2C\CortexM3\ARM_GCC_541\Debug\Listing Files\font.lst</v>
+<v>OLED\OLED_I2C\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_OLED.lst</v>
+<v>OLED\OLED_I2C\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_OLED_BOOT.lst</v>
+<v>OLED\OLED_I2C\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_OLED_INT.lst</v>
+<v>OLED\OLED_I2C\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_OLED_MASTER.lst</v>
+<v>OLED\OLED_I2C\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_OLED_PM.lst</v>
+<v>OLED\OLED_I2C\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_OLED_SLAVE.lst</v>
+<v>OLED\OLED_I2C\CortexM3\ARM_GCC_541\Debug\Listing Files\LED.lst</v>
+<v>OLED\OLED_I2C\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>OLED\OLED_I2C\CortexM3\ARM_GCC_541\Debug\Listing Files\oled.lst</v>
+<v>OLED\OLED_I2C\CortexM3\ARM_GCC_541\Debug\Listing Files\SCL_OLED.lst</v>
+<v>OLED\OLED_I2C\CortexM3\ARM_GCC_541\Debug\Listing Files\SDA_OLED.lst</v>
+<v>OLED\OLED_I2C\CortexM3\ARM_GCC_541\Debug\OLED_I2C.elf</v>
+<v>OLED\OLED_I2C\CortexM3\ARM_GCC_541\Debug\OLED_I2C.hex</v>
+<v>OLED\OLED_I2C\CortexM3\ARM_GCC_541\Debug\OLED_I2C.map</v>
+<v>OLED\OLED_I2C\OLED_I2C.gpdsc</v>
+<v>OLED\OLED_I2C\OLED_I2C.rpt</v>
+<v>OLED\OLED_I2C\OLED_I2C_timing.html</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>OLED</v>
+<v>OLED\OLED_I2C</v>
+<v>OLED\OLED_I2C\CortexM3</v>
+<v>OLED\OLED_I2C\CortexM3\ARM_GCC_541</v>
+<v>OLED\OLED_I2C\CortexM3\ARM_GCC_541\Debug</v>
+<v>OLED\OLED_I2C\CortexM3\ARM_GCC_541\Debug\Listing Files</v>
+<v>OLED\OLED_I2C\CortexM3\ARM_GCC_541\Debug\Listing Files\Cm3Start.lst</v>
+<v>OLED\OLED_I2C\CortexM3\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>OLED\OLED_I2C\CortexM3\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>OLED\OLED_I2C\CortexM3\ARM_GCC_541\Debug\Listing Files\CyDmac.lst</v>
+<v>OLED\OLED_I2C\CortexM3\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>OLED\OLED_I2C\CortexM3\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>OLED\OLED_I2C\CortexM3\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>OLED\OLED_I2C\CortexM3\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>OLED\OLED_I2C\CortexM3\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>OLED\OLED_I2C\CortexM3\ARM_GCC_541\Debug\Listing Files\CySpc.lst</v>
+<v>OLED\OLED_I2C\CortexM3\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>OLED\OLED_I2C\CortexM3\ARM_GCC_541\Debug\Listing Files\font.lst</v>
+<v>OLED\OLED_I2C\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_OLED.lst</v>
+<v>OLED\OLED_I2C\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_OLED_BOOT.lst</v>
+<v>OLED\OLED_I2C\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_OLED_INT.lst</v>
+<v>OLED\OLED_I2C\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_OLED_MASTER.lst</v>
+<v>OLED\OLED_I2C\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_OLED_PM.lst</v>
+<v>OLED\OLED_I2C\CortexM3\ARM_GCC_541\Debug\Listing Files\I2C_OLED_SLAVE.lst</v>
+<v>OLED\OLED_I2C\CortexM3\ARM_GCC_541\Debug\Listing Files\LED.lst</v>
+<v>OLED\OLED_I2C\CortexM3\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>OLED\OLED_I2C\CortexM3\ARM_GCC_541\Debug\Listing Files\oled.lst</v>
+<v>OLED\OLED_I2C\CortexM3\ARM_GCC_541\Debug\Listing Files\SCL_OLED.lst</v>
+<v>OLED\OLED_I2C\CortexM3\ARM_GCC_541\Debug\Listing Files\SDA_OLED.lst</v>
+<v>OLED\OLED_I2C\CortexM3\ARM_GCC_541\Debug\OLED_I2C.elf</v>
+<v>OLED\OLED_I2C\CortexM3\ARM_GCC_541\Debug\OLED_I2C.hex</v>
+<v>OLED\OLED_I2C\CortexM3\ARM_GCC_541\Debug\OLED_I2C.map</v>
+<v>OLED\OLED_I2C\OLED_I2C.gpdsc</v>
+<v>OLED\OLED_I2C\OLED_I2C.rpt</v>
+<v>OLED\OLED_I2C\OLED_I2C_timing.html</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStates>
+<TreeKeysV2>
+<v>Datasheet</v>
+</TreeKeysV2>
+<TreeStatesV2>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>OLED</v>
+<v>OLED\OLED_I2C</v>
+<v>OLED\OLED_I2C\PSoC 5LP Architecture TRM</v>
+<v>OLED\OLED_I2C\CY8C58LP Family Datasheet</v>
+<v>OLED\OLED_I2C\System Reference Guides</v>
+<v>OLED\OLED_I2C\System Reference Guides\cy_boot_v5_70</v>
+<v>OLED\OLED_I2C\cy_pins_v2_20</v>
+<v>OLED\OLED_I2C\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>OLED\OLED_I2C\I2C_v3_50.pdf</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>OLED</v>
+<v>OLED\OLED_I2C</v>
+<v>OLED\OLED_I2C\PSoC 5LP Architecture TRM</v>
+<v>OLED\OLED_I2C\CY8C58LP Family Datasheet</v>
+<v>OLED\OLED_I2C\System Reference Guides</v>
+<v>OLED\OLED_I2C\System Reference Guides\cy_boot_v5_70</v>
+<v>OLED\OLED_I2C\cy_pins_v2_20</v>
+<v>OLED\OLED_I2C\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>OLED\OLED_I2C\I2C_v3_50.pdf</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStatesV2>
+</CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35>
+</dataGuid>
+<dataGuid v="5f2be1a5-0687-4501-bb8c-cf21cb8211bf">
+<CyGuid_5f2be1a5-0687-4501-bb8c-cf21cb8211bf type_name="CyDesigner.Common.ProjMgmt.GUI.CyBookmarkData" version="1">
+<indicators />
+</CyGuid_5f2be1a5-0687-4501-bb8c-cf21cb8211bf>
+</dataGuid>
+</userData>
+</CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
+<Unloaded />
+<OpenDocs>
+<name v=".\OLED_I2C.cydsn\oled.h" />
+<name v=".\OLED_I2C.cydsn\main.c" />
+<name v=".\OLED_I2C.cydsn\oled.c" />
+<name v=".\OLED_I2C.cydsn\Generated_Source\PSoC5\I2C_OLED_MASTER.c" />
+<name v=".\OLED_I2C.cydsn\TopDesign\TopDesign.cysch" />
+<name v=".\OLED_I2C.cydsn\font.h" />
+<name v=".\OLED_I2C.cydsn\font.c" />
+</OpenDocs>
+<OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
+
+  Actipro Docking/MDI for WinForms
+  Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
+  http://www.actiprosoftware.com
+
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1010, 699" SelectedTabbedMdiWindow="8dacd7f2-e367-4462-a09f-36b4a354d315"><DocumentWindow Key="C:\Users\seanj\Documents\RLE\kent\OLED\OLED_I2C.cydsn\oled.h" Guid="b5271637-2f26-49c9-a2fe-9bb6aed6307a" /><DocumentWindow Key="C:\Users\seanj\Documents\RLE\kent\OLED\OLED_I2C.cydsn\main.c" Guid="8dacd7f2-e367-4462-a09f-36b4a354d315" /><DocumentWindow Key="C:\Users\seanj\Documents\RLE\kent\OLED\OLED_I2C.cydsn\oled.c" Guid="fda3ea7e-fd20-40c6-96f6-5b59b170c69a" /><DocumentWindow Key="C:\Users\seanj\Documents\RLE\kent\OLED\OLED_I2C.cydsn\Generated_Source\PSoC5\I2C_OLED_MASTER.c" Guid="1fd8a1d5-c1f0-4b15-b707-69b80217dc33" /><DocumentWindow Key="C:\Users\seanj\Documents\RLE\kent\OLED\OLED_I2C.cydsn\TopDesign\TopDesign.cysch" Guid="6afc23f6-ec9c-482f-af48-d849fbc39742" /><DocumentWindow Key="C:\Users\seanj\Documents\RLE\kent\OLED\OLED_I2C.cydsn\font.h" Guid="f0187b4a-26ba-4bdb-b94b-4a9955d084ab" /><DocumentWindow Key="C:\Users\seanj\Documents\RLE\kent\OLED\OLED_I2C.cydsn\font.c" Guid="8f58da4b-436c-41b1-9db5-e006ec5ded0b" /><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="5c3548a1-fd7e-499c-9d61-c3a0a552f81b" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+<config v="" />
+<AutoUpdate v="true" />
+</CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
+</CyXmlSerializer>

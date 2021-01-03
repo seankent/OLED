@@ -1,0 +1,6 @@
+C:\Users\seanj\Documents\RLE\kent\OLED\OLED_I2C.cydsn\OLED_I2C.cyprj|4a3b9483-b28f-4a23-bf5c-e812c6ba7f8f
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|3823dbf3-a7fc-42c0-b377-cd3f01d96b8e
+C:\Users\seanj\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|ae159470-945d-46a7-bc7a-96ccf600ab0f
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|217dcd3c-d852-4383-8308-4e22394be5d5
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|aca92902-25f6-4494-bcf5-14ec42234a21
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|151ed5fd-497a-429c-bc7c-8a531c9ffb1a
